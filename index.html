@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Hazem Turaani — Mechanical Engineer &amp; Judo Coach</title>
+<meta name="description" content="Mechanical engineer (University of Michigan) working on refinery piping integrity. Founder and head coach of the Michigan judo club.">
+
+<!-- Typefaces: Fraunces for headings, Inter for reading. Loaded free from Google. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   1. DESIGN TOKENS  —  colours and fonts live here, change once
+   ═══════════════════════════════════════════════════════════════════ */
+:root{
+  --ink:        #14110f;   /* warm near-black          */
+  --ink-soft:   #57514b;   /* body / secondary text    */
+  --ink-faint:  #70665a;   /* captions, labels         */
+  --bg:         #faf8f4;   /* warm paper               */
+  --bg-alt:     #f0ede7;   /* parchment, alt sections  */
+  --bg-dark:    #1c1815;   /* warm black, judo section */
+  --line:       #ded8ce;   /* hairline rules           */
+  --accent:     #a63d2f;   /* oxide red                */
+  --accent-dk:  #822e23;
+  --accent-lt:  #c9705f;   /* accent on dark bg        */
+
+  --radius:     8px;
+  --radius-lg:  10px;
+  --maxw:       1080px;
+  --gutter:     24px;
+
+  --font:      "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-disp: "Fraunces", Georgia, "Times New Roman", serif;
+
+  --ease: cubic-bezier(.32,.72,0,1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   2. BASE
+   ═══════════════════════════════════════════════════════════════════ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; scroll-padding-top:76px; -webkit-text-size-adjust:100%; }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--font);
+  font-size:17px; line-height:1.6; letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; text-underline-offset:3px; }
+h1,h2,h3,h4{
+  margin:0; font-family:var(--font-disp);
+  font-weight:600; letter-spacing:-.015em; line-height:1.12;
+  font-variation-settings:"opsz" 100;
+}
+p{ margin:0; }
+
+.wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter); }
+.section{ padding:120px 0; }
+.section--alt{ background:var(--bg-alt); }
+
+.display { font-size:clamp(38px,6.6vw,72px); font-variation-settings:"opsz" 144; }
+.h2      { font-size:clamp(30px,4.4vw,48px); font-variation-settings:"opsz" 144; }
+.h3      { font-size:clamp(21px,2.6vw,29px); }
+.lede    { font-family:var(--font); font-size:clamp(18px,2.1vw,21px); color:var(--ink-soft); font-weight:400; letter-spacing:-.005em; line-height:1.6; }
+.body    { color:var(--ink-soft); }
+.eyebrow {
+  font-family:var(--font); font-size:12px; font-weight:600;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin-bottom:18px;
+}
+
+/* ── PROSE: reusable long-form styles, ready for your blog pages ──── */
+.prose{ max-width:68ch; font-size:19px; line-height:1.75; color:#332e2a; }
+.prose > * + *{ margin-top:1.3em; }
+.prose h2{ font-size:clamp(26px,3.4vw,34px); margin-top:2.2em; }
+.prose h3{ font-size:clamp(20px,2.4vw,24px); margin-top:1.8em; }
+.prose blockquote{
+  margin-inline:0; padding-left:26px; border-left:2px solid var(--accent);
+  font-family:var(--font-disp); font-style:italic; font-size:21px; color:var(--ink);
+}
+.prose img{ border-radius:var(--radius); margin-block:2em; }
+.prose hr{ border:0; border-top:1px solid var(--line); margin-block:2.6em; }
+.prose code{ font-size:.9em; background:var(--bg-alt); padding:2px 6px; border-radius:4px; }
+
+.section-head{ max-width:660px; margin-bottom:56px; }
+.section-head .lede{ margin-top:20px; }
+
+/* buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 28px; border-radius:5px; border:1px solid transparent;
+  font-family:var(--font); font-size:15px; font-weight:500; letter-spacing:.005em; cursor:pointer;
+  transition:background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+}
+.btn:hover{ text-decoration:none; }
+.btn--primary{ background:var(--ink); color:var(--bg); }
+.btn--primary:hover{ background:var(--accent); }
+.btn--ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
+.btn--ghost:hover{ border-color:var(--ink); background:rgba(0,0,0,.03); }
+
+.link-arrow{ font-weight:500; display:inline-flex; align-items:center; gap:7px; }
+.link-arrow::after{ content:"→"; font-size:1em; line-height:1; transition:transform .25s var(--ease); }
+.link-arrow:hover{ text-decoration:none; }
+.link-arrow:hover::after{ transform:translateX(4px); }
+
+/* placeholder image blocks — swap for real <img> tags later */
+.ph{
+  position:relative; width:100%; border-radius:var(--radius); overflow:hidden;
+  background:#e7e1d6; border:1px solid var(--line);
+  display:grid; place-items:center;
+}
+.ph::after{
+  content:attr(data-label);
+  font-family:var(--font); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:#a0968a; font-weight:600; padding:0 16px; text-align:center;
+}
+.ph--4x3{ aspect-ratio:4/3; }
+.ph--1x1{ aspect-ratio:1/1; }
+.ph--dark{ background:#272119; border-color:rgba(255,255,255,.10); }
+.ph--dark::after{ color:#6b6058; }
+
+/* REAL PHOTOS — swap a grey .ph block for one of these when you have the image.
+   <img class="photo photo--4x3" src="images/name.jpg" alt="Describe the photo">   */
+.photo{
+  width:100%; display:block; object-fit:cover;
+  border-radius:var(--radius); border:1px solid var(--line);
+}
+.photo--4x3{ aspect-ratio:4/3; }
+.photo--1x1{ aspect-ratio:1/1; }
+.card .photo{ border-radius:0; border:0; border-bottom:1px solid var(--line); }
+
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   3. NAVIGATION
+   ═══════════════════════════════════════════════════════════════════ */
+.nav{
+  position:fixed; inset:0 0 auto 0; z-index:100; height:64px;
+  background:rgba(250,248,244,.90);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav__inner{ height:100%; display:flex; align-items:center; justify-content:space-between; }
+.nav__logo{
+  font-family:var(--font-disp); font-size:19px; font-weight:600;
+  color:var(--ink); letter-spacing:-.01em;
+}
+.nav__logo:hover{ text-decoration:none; color:var(--accent); }
+.nav__links{ display:flex; gap:32px; list-style:none; margin:0; padding:0; }
+.nav__links a{
+  font-family:var(--font); font-size:12px; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--ink-soft);
+}
+.nav__links a:hover{ color:var(--accent); text-decoration:none; }
+.nav__toggle{ display:none; background:none; border:0; padding:8px; cursor:pointer; }
+.nav__toggle span{ display:block; width:18px; height:1.5px; background:var(--ink); margin:4px 0; transition:transform .3s var(--ease), opacity .3s var(--ease); }
+.nav.open .nav__toggle span:nth-child(1){ transform:translateY(5.5px) rotate(45deg); }
+.nav.open .nav__toggle span:nth-child(2){ opacity:0; }
+.nav.open .nav__toggle span:nth-child(3){ transform:translateY(-5.5px) rotate(-45deg); }
+
+@media (max-width:900px){
+  .nav__toggle{ display:block; }
+  .nav__links{
+    position:fixed; top:64px; left:0; right:0;
+    flex-direction:column; gap:0; padding:8px var(--gutter) 24px;
+    background:rgba(250,248,244,.98);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    transform:translateY(-8px); opacity:0; pointer-events:none;
+    transition:opacity .25s var(--ease), transform .25s var(--ease);
+  }
+  .nav.open .nav__links{ opacity:1; transform:none; pointer-events:auto; }
+  .nav__links a{ display:block; padding:14px 0; font-size:17px; border-bottom:1px solid var(--line); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4. HERO + STATS
+   ═══════════════════════════════════════════════════════════════════ */
+.hero{
+  min-height:100svh; display:grid; place-items:center; text-align:center;
+  padding:130px 0 80px;
+  background:var(--bg);
+}
+.hero__portrait{
+  width:104px; height:104px; border-radius:50%; margin:0 auto 36px;
+  background:#e7e1d6;
+  display:grid; place-items:center; font-family:var(--font); font-size:10px; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:#a0968a;
+  border:1px solid var(--line);
+}
+.hero .display{ max-width:16ch; margin-inline:auto; }
+.hero .lede{ max-width:58ch; margin:26px auto 0; }
+.hero__cta{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:40px; }
+.hero__scroll{
+  margin-top:60px; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-faint); display:inline-block; animation:float 2.4s ease-in-out infinite;
+}
+@keyframes float{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(6px);} }
+
+.stats{ border-block:1px solid var(--line); }
+.stats__grid{ display:grid; grid-template-columns:repeat(4,1fr); }
+.stat{ padding:44px 18px; text-align:center; border-left:1px solid var(--line); }
+.stat:first-child{ border-left:0; }
+.stat__num{
+  font-family:var(--font-disp); font-size:clamp(32px,4.2vw,46px);
+  font-weight:600; letter-spacing:-.02em; line-height:1;
+}
+.stat__num--word{ font-size:clamp(24px,3.1vw,34px); }  /* for word stats like NASA */
+.stat__label{
+  font-family:var(--font); font-size:11px; color:var(--ink-faint); margin-top:10px;
+  letter-spacing:.1em; text-transform:uppercase;
+}
+@media (max-width:700px){
+  .stats__grid{ grid-template-columns:repeat(2,1fr); }
+  .stat:nth-child(odd){ border-left:0; }
+  .stat:nth-child(n+3){ border-top:1px solid var(--line); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   5. CARDS + FEATURE ROWS
+   ═══════════════════════════════════════════════════════════════════ */
+.cards{ display:grid; gap:24px; grid-template-columns:repeat(3,1fr); }
+@media (max-width:880px){ .cards{ grid-template-columns:1fr; } }
+
+.card{
+  background:rgba(255,255,255,.55); border-radius:var(--radius-lg); overflow:hidden;
+  border:1px solid var(--line); display:flex; flex-direction:column;
+  transition:border-color .35s var(--ease), background .35s var(--ease);
+}
+.card:hover{ border-color:#bdb2a2; background:rgba(255,255,255,.9); }
+.card__body{ padding:28px 28px 32px; display:flex; flex-direction:column; gap:11px; flex:1; }
+.card__tag{
+  font-family:var(--font); font-size:11px; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--accent);
+}
+.card__title{ font-family:var(--font-disp); font-size:22px; font-weight:600; letter-spacing:-.01em; }
+.card__text{ color:var(--ink-soft); font-size:15px; flex:1; line-height:1.65; }
+.card .ph{ border-radius:0; }
+
+.feature{ display:grid; grid-template-columns:1.05fr 1fr; gap:64px; align-items:center; }
+.feature + .feature{ margin-top:110px; }
+.feature--flip .feature__media{ order:2; }
+.feature__text .h3{ margin-bottom:16px; }
+@media (max-width:880px){
+  .feature{ grid-template-columns:1fr; gap:32px; }
+  .feature--flip .feature__media{ order:0; }
+  .feature + .feature{ margin-top:72px; }
+}
+
+.ticks{ list-style:none; margin:22px 0 0; padding:0; display:grid; gap:12px; }
+.ticks li{ position:relative; padding-left:26px; color:var(--ink-soft); font-size:16px; }
+.ticks li::before{
+  content:""; position:absolute; left:0; top:.62em; width:6px; height:6px;
+  border-radius:50%; background:var(--accent);
+}
+
+/* pull quote — for quoting yourself or the press */
+.pull{
+  margin:28px 0 0; padding-left:24px; border-left:2px solid var(--accent);
+  font-family:var(--font-disp); font-style:italic; font-size:20px; line-height:1.45; color:var(--ink);
+}
+.pull cite{ display:block; margin-top:12px; font-family:var(--font); font-style:normal; font-size:13px; color:var(--ink-faint); }
+
+/* honours / record list */
+.record{ list-style:none; margin:48px 0 0; padding:0; border-top:1px solid var(--line); }
+.record li{
+  display:grid; grid-template-columns:auto 1fr auto; gap:24px; align-items:baseline;
+  padding:22px 0; border-bottom:1px solid var(--line);
+}
+.record__n{ font-family:var(--font-disp); font-size:27px; font-weight:600; letter-spacing:-.02em; min-width:2.6ch; color:var(--accent); }
+.record__what{ font-family:var(--font-disp); font-size:20px; }
+.record__lvl{ font-size:13px; color:var(--ink-faint); text-align:right; }
+@media (max-width:600px){
+  .record li{ grid-template-columns:auto 1fr; gap:16px; }
+  .record__lvl{ grid-column:2; text-align:left; margin-top:-14px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   6. DARK SECTION (JUDO)
+   ═══════════════════════════════════════════════════════════════════ */
+.dark{ background:var(--bg-dark); color:#f4efe7; }
+.dark .lede,.dark .body{ color:#a89f92; }
+.dark .eyebrow{ color:var(--accent-lt); }
+.dark .stat{ border-color:rgba(255,255,255,.12); }
+.dark .stat__label{ color:#8b8177; }
+.dark .stats{ border-color:rgba(255,255,255,.12); }
+
+.gallery{ display:grid; gap:16px; grid-template-columns:repeat(4,1fr); margin-top:56px; }
+.gallery > *:first-child{ grid-column:span 2; grid-row:span 2; aspect-ratio:1/1; }
+@media (max-width:880px){
+  .gallery{ grid-template-columns:repeat(2,1fr); }
+  .gallery > *:first-child{ grid-column:span 2; grid-row:auto; aspect-ratio:16/10; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   7. TIMELINE
+   ═══════════════════════════════════════════════════════════════════ */
+.timeline{ position:relative; margin-top:56px; padding-left:0; list-style:none; }
+.timeline::before{
+  content:""; position:absolute; left:50%; top:6px; bottom:6px; width:1px;
+  background:var(--line); transform:translateX(-.5px);
+}
+.tl-item{ position:relative; width:50%; padding:0 48px 44px 0; text-align:right; }
+.tl-item:nth-child(even){ margin-left:50%; padding:0 0 44px 48px; text-align:left; }
+.tl-item::after{
+  content:""; position:absolute; top:6px; right:-5.5px; width:11px; height:11px;
+  border-radius:50%; background:var(--accent); border:2px solid var(--bg-alt);
+}
+.tl-item:nth-child(even)::after{ right:auto; left:-5.5px; }
+.tl-year{ font-family:var(--font); font-size:11px; font-weight:600; letter-spacing:.13em; color:var(--accent); text-transform:uppercase; }
+.tl-title{ font-family:var(--font-disp); font-size:21px; font-weight:600; letter-spacing:-.01em; margin-top:8px; }
+.tl-org{ font-size:15px; color:var(--ink-faint); margin-top:4px; }
+.tl-text{ font-size:15px; color:var(--ink-soft); margin-top:10px; }
+@media (max-width:760px){
+  .timeline::before{ left:5px; }
+  .tl-item,
+  .tl-item:nth-child(even){ width:100%; margin-left:0; padding:0 0 36px 32px; text-align:left; }
+  .tl-item::after,
+  .tl-item:nth-child(even)::after{ left:0; right:auto; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   8. TESTIMONIALS
+   ═══════════════════════════════════════════════════════════════════ */
+.quotes{
+  display:flex; gap:22px; overflow-x:auto; scroll-snap-type:x mandatory;
+  padding:4px 4px 24px; margin-inline:calc(var(--gutter) * -1);
+  padding-inline:var(--gutter); scrollbar-width:none;
+}
+.quotes::-webkit-scrollbar{ display:none; }
+.quote{
+  flex:0 0 clamp(280px,32vw,368px); scroll-snap-align:start;
+  background:rgba(255,255,255,.55); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:34px; display:flex; flex-direction:column; gap:20px;
+}
+.quote__mark{ font-family:var(--font-disp); font-size:52px; line-height:.55; color:var(--accent); opacity:.35; }
+.quote__text{
+  font-family:var(--font-disp); font-size:19px; line-height:1.5;
+  color:var(--ink); flex:1; letter-spacing:-.005em;
+}
+.quote__person{ display:flex; align-items:center; gap:13px; padding-top:20px; border-top:1px solid var(--line); }
+.quote__avatar{
+  width:42px; height:42px; border-radius:50%; flex:none; background:#e7e1d6;
+  border:1px solid var(--line);
+  display:grid; place-items:center; font-size:14px; font-weight:600; color:#a0968a;
+}
+.quote__name{ font-size:15px; font-weight:600; }
+.quote__role{ font-size:13px; color:var(--ink-faint); }
+.quotes-nav{ display:flex; gap:10px; margin-top:8px; }
+.qbtn{
+  width:40px; height:40px; border-radius:5px; border:1px solid var(--line);
+  background:transparent; color:var(--ink); font-size:16px; cursor:pointer;
+  display:grid; place-items:center; transition:border-color .2s var(--ease), color .2s var(--ease);
+}
+.qbtn:hover{ border-color:var(--ink); color:var(--accent); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   9. INTERESTS / CV BAND / CONTACT
+   ═══════════════════════════════════════════════════════════════════ */
+.interests{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:8px; }
+@media (max-width:760px){ .interests{ grid-template-columns:1fr; gap:0; } }
+.interest{ padding:30px 0 0; border-top:1px solid var(--line); }
+.interest h3{ font-size:21px; margin-bottom:10px; }
+.interest p{ font-size:15px; color:var(--ink-soft); line-height:1.65; }
+
+.band{ border-radius:var(--radius-lg); background:var(--bg-alt); border:1px solid var(--line); padding:64px 48px; text-align:center; }
+.band .lede{ max-width:52ch; margin:16px auto 0; }
+.band__cta{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
+@media (max-width:600px){ .band{ padding:44px 24px; } }
+
+.contact-grid{ display:grid; grid-template-columns:1fr 1.15fr; gap:72px; align-items:start; }
+@media (max-width:880px){ .contact-grid{ grid-template-columns:1fr; gap:44px; } }
+.contact-list{ list-style:none; margin:28px 0 0; padding:0; display:grid; gap:18px; }
+.contact-list li{ display:grid; gap:2px; }
+.contact-list span{ font-size:13px; color:var(--ink-faint); }
+.contact-list a{ font-size:17px; }
+.contact-list .plain{ font-size:17px; color:var(--ink); }
+
+.form{ display:grid; gap:16px; }
+.field{ display:grid; gap:7px; }
+.field label{ font-size:14px; font-weight:500; }
+.field input,.field textarea{
+  font-family:inherit; font-size:16px; color:var(--ink);
+  padding:13px 15px; border:1px solid var(--line); border-radius:5px; background:rgba(255,255,255,.6);
+  transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.field input:focus,.field textarea:focus{
+  outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(166,61,47,.13);
+}
+.field textarea{ min-height:132px; resize:vertical; }
+.form .btn{ justify-self:start; }
+.form__note{ font-size:13px; color:var(--ink-faint); }
+
+.footer{ border-top:1px solid var(--line); padding:44px 0; }
+.footer__inner{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+.footer p{ font-size:13px; color:var(--ink-faint); }
+.footer nav{ display:flex; gap:24px; }
+.footer nav a{ font-size:13px; color:var(--ink-faint); }
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="#top" class="nav__logo">Hazem Turaani</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#engineering">Engineering</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#judo">Judo</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="wrap reveal">
+    <div class="hero__portrait">Portrait</div>
+    <h1 class="display">Mechanical engineer. Founding judo coach.</h1>
+    <p class="lede">
+      I measure vibration on refinery piping for a living, and I coach the judo club
+      I founded at the University of Michigan. Both jobs come down to the same thing —
+      spotting what's about to fail, and fixing it before it does.
+    </p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="#engineering">See my work</a>
+      <a class="btn btn--ghost" href="cv.pdf" download>Download CV</a>
+    </div>
+    <span class="hero__scroll">Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════════ STAT STRIP ═══════════════════ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats__grid reveal">
+      <div class="stat"><div class="stat__num">2×</div><div class="stat__label">DoD X-Force fellow</div></div>
+      <div class="stat"><div class="stat__num">7</div><div class="stat__label">Team titles as coach</div></div>
+      <div class="stat"><div class="stat__num">3×</div><div class="stat__label">State champion</div></div>
+      <div class="stat"><div class="stat__num">3rd</div><div class="stat__label">Collegiate nationals</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ENGINEERING ═══════════════════ -->
+<section class="section" id="engineering">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Engineering</p>
+      <h2 class="h2">Keeping heavy industry standing up.</h2>
+      <p class="lede">
+        Mechanical engineering at the University of Michigan, two summers as a Department of Defense
+        X-Force Fellow, and a term of renewable energy research in Berlin — then straight into the
+        field. Today I work in asset integrity, which mostly means being on site, on the pipe, with
+        instruments in my hands.
+      </p>
+    </div>
+
+    <!-- X-Force leads the section -->
+    <div class="feature reveal">
+      <div class="feature__media"><div class="ph ph--4x3" data-label="X-Force / Northern Agility photo"></div></div>
+      <div class="feature__text">
+        <p class="eyebrow">X-Force Fellow · 2022 &amp; 2023</p>
+        <h3 class="h3">Two summers solving Defense Department problems.</h3>
+        <p class="body">
+          The X-Force Fellowship puts small teams of students onto real national security problems
+          for ten weeks, full-time, with a military sponsor. I was selected twice.
+        </p>
+        <p class="body" style="margin-top:20px">
+          In 2022 the sponsor was the U.S. Air Force and the problem was Agile Combat Deployment:
+          repair a damaged runway, or stand up a new one, in under eight hours. Six of us spent
+          eight days at the Northern Agility 22-1 exercise in Michigan's Upper Peninsula, where a
+          stretch of the M-28 highway became an active runway for seven hours and the Air Force
+          performed the first full Integrated Combat Turn on a public highway in U.S. history. I
+          interviewed civil engineers, firefighters and pilots at K.I. Sawyer, called equipment
+          manufacturers including Hitachi and Bobcat about what their machines could actually do,
+          and ran the numbers on how thick a surface has to be for a fighter to land on it and
+          take off again. We delivered a proof of concept.
+        </p>
+        <blockquote class="pull">
+          “My summer was straight out of a Hollywood movie.”
+          <cite>— Michigan Center for Entrepreneurship, student spotlight</cite>
+        </blockquote>
+        <p class="body" style="margin-top:24px">
+          In 2023 I went back, this time with the U.S. Navy at Naval Surface Warfare Center, Crane
+          Division, on a three-person team covering two problems: shielding microelectronics against
+          radiation, and insulating conductors at cryogenic temperatures. I researched radiation
+          damage in silicon wafers and ran molecular dynamics simulations of an aluminium lattice in
+          LAMMPS. The deliverables aren't public.
+        </p>
+        <ul class="ticks">
+          <li>Selected twice — U.S. Air Force (2022), U.S. Navy / NSWC Crane (2023)</li>
+          <li>Ten weeks each, full-time and paid</li>
+          <li>Field research, equipment scouting, surface load calculations, LAMMPS simulation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature feature--flip reveal">
+      <div class="feature__media"><div class="ph ph--4x3" data-label="Refinery piping photo"></div></div>
+      <div class="feature__text">
+        <p class="eyebrow">Current role · In the field</p>
+        <h3 class="h3">On site, on the pipe.</h3>
+        <p class="body">
+          Piping in a refinery is never still. Pumps, compressors and flow turbulence shake it
+          constantly, and small-bore connections — the little branch lines off the main run — are
+          where that shaking does its damage first. I travel to the units, instrument those
+          connections, and check them against API limits. When a line comes back over the limit,
+          I design the fix: what to brace, where, and how, based on the pipe size, the
+          configuration, and the data I just collected.
+        </p>
+        <ul class="ticks">
+          <li>Accelerometer surveys on small-bore connections across live units</li>
+          <li>Screening against API acceptance criteria</li>
+          <li>Remediation design and written findings for the client</li>
+          <li>Around four sites a year — North Dakota, Kentucky, Minnesota, Michigan, California</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ENGINEERING — RESEARCH + FOCUS ═══════════════════ -->
+<section class="section section--alt">
+  <div class="wrap">
+
+    <div class="feature reveal">
+      <div class="feature__media"><div class="ph ph--4x3" data-label="NASA PWEE photo or certificate"></div></div>
+      <div class="feature__text">
+        <p class="eyebrow">NASA · 2026</p>
+        <h3 class="h3">Learning how NASA decides what to fund.</h3>
+        <p class="body">
+          The NASA Proposal Writing and Evaluation Experience is a full-semester academy that takes
+          you through the process from the inside: identify a NASA need, scope a response against a
+          real solicitation, and write the proposal. I handled topic research, CAD modelling and the
+          statistical analysis for my team's submission. We didn't place. Afterwards I was trained as
+          a reviewer and scored four other teams' proposals — which taught me more about writing a
+          good one than writing my own had.
+        </p>
+        <ul class="ticks">
+          <li>Fifteen weeks, sponsored by NASA</li>
+          <li>Research, CAD modelling and statistical analysis on the team's proposal</li>
+          <li>Trained as a reviewer; scored four peer proposals</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature feature--flip reveal">
+      <div class="feature__media"><div class="ph ph--4x3" data-label="TU Berlin research photo"></div></div>
+      <div class="feature__text">
+        <p class="eyebrow">Research · TU Berlin · 2023</p>
+        <h3 class="h3">A term on renewables in Berlin.</h3>
+        <p class="body">
+          A semester at Technische Universität Berlin working through how solar, wind and storage
+          actually behave as a system rather than as separate technologies. The question I ended on
+          was a practical one: what's the right way to store energy in different regions of the
+          United States, given that geography decides so much of the answer.
+        </p>
+        <ul class="ticks">
+          <li>Built the models in Python</li>
+          <li>Simulated complete renewable systems for three U.S. cities and compared them by geography</li>
+          <li>Worked within a German research group</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Focus areas — what you want to be hired for next -->
+    <div class="cards reveal" style="margin-top:96px">
+      <article class="card">
+        <div class="card__body">
+          <p class="card__tag">Focus</p>
+          <h3 class="card__title">Field work &amp; asset integrity</h3>
+          <p class="card__text">Accelerometer surveys on live plant, screening against API criteria, and designing the remediation that follows. Comfortable being the engineer on site.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__body">
+          <p class="card__tag">Focus</p>
+          <h3 class="card__title">Design &amp; CAD</h3>
+          <p class="card__text">SolidWorks and Fusion 360. Mechanical design from a rough constraint to a part someone can actually make.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__body">
+          <p class="card__tag">Focus</p>
+          <h3 class="card__title">Simulation &amp; analysis</h3>
+          <p class="card__text">Simulink, Python and LAMMPS, with a standing interest in aviation and aerospace applications. Thermofluids is where I'd most like to go deeper.</p>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ LEADERSHIP ═══════════════════ -->
+<section class="section" id="leadership">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Leadership</p>
+      <h2 class="h2">I started a club from an empty room.</h2>
+      <p class="lede">
+        There was no judo club at Michigan, so I built one — sourced the equipment, imported it,
+        recruited the first members, and coached. Four years later it has seven team championships
+        and around fifty members. I still coach it, unpaid, as a volunteer.
+      </p>
+    </div>
+
+    <!-- The mats story — the standout -->
+    <div class="feature reveal">
+      <div class="feature__media"><div class="ph ph--4x3" data-label="Mats / dojo photo"></div></div>
+      <div class="feature__text">
+        <p class="eyebrow">Founding the club</p>
+        <h3 class="h3">The mats came from China. I got them off the boat.</h3>
+        <p class="body">
+          A judo club is a floor before it is anything else, and a domestic tatami order was far
+          beyond what a new student group could fund. So I sourced the mats from a manufacturer in
+          China, negotiated the order, arranged the freight, and handled the import paperwork,
+          customs clearance and collection from the port myself — then laid the floor. It was the
+          first project I ever ran end to end.
+        </p>
+        <ul class="ticks">
+          <li>64 m² of tatami — about 690 square feet — for roughly $5,000</li>
+          <li>Sourced and negotiated directly with an overseas manufacturer</li>
+          <li>Arranged international freight and import documentation</li>
+          <li>Cleared customs and collected the shipment from port</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cards reveal" style="margin-top:96px">
+      <article class="card">
+        <div class="card__body">
+          <p class="card__tag">Founded</p>
+          <h3 class="card__title">Built the club from scratch</h3>
+          <p class="card__text">Equipment, funding, university approvals, insurance and a training schedule that survives exam season.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__body">
+          <p class="card__tag">Coached</p>
+          <h3 class="card__title">Seven team championships</h3>
+          <p class="card__text">Three state, two regional and two national collegiate titles under my coaching.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__body">
+          <p class="card__tag">Grew</p>
+          <h3 class="card__title">Beginners into competitors</h3>
+          <p class="card__text">From the ten members needed to register, to around fifty today. Our first competition entry was three people; we now send twenty-four.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Coaching record -->
+    <ul class="record reveal">
+      <li>
+        <span class="record__n">3×</span>
+        <span class="record__what">State champions</span>
+        <span class="record__lvl">Team · as head coach</span>
+      </li>
+      <li>
+        <span class="record__n">2×</span>
+        <span class="record__what">Regional champions</span>
+        <span class="record__lvl">Team · as head coach</span>
+      </li>
+      <li>
+        <span class="record__n">2×</span>
+        <span class="record__what">National collegiate champions</span>
+        <span class="record__lvl">Team · as head coach</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════ JUDO — PERSONAL RECORD (dark) ═══════════════════ -->
+<section class="section dark" id="judo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Judo</p>
+      <h2 class="h2" style="color:#f4efe7">Three state titles, back to back.</h2>
+      <p class="lede">
+        Before I coached, I competed — and I still do, alongside the people I coach.
+        Three consecutive state titles at the Meijer State Games of Michigan, and third place
+        at the NCJA College and High School Championships.
+      </p>
+    </div>
+
+    <div class="stats reveal" style="border:0">
+      <div class="stats__grid">
+        <div class="stat"><div class="stat__num">3×</div><div class="stat__label">State champion, consecutive</div></div>
+        <div class="stat"><div class="stat__num">3rd</div><div class="stat__label">National collegiate</div></div>
+        <div class="stat"><div class="stat__num">6</div><div class="stat__label">Years on the mat</div></div>
+        <div class="stat"><div class="stat__num">Ikyu</div><div class="stat__label">Current grade</div></div>
+      </div>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="ph ph--dark" data-label="Main competition photo"></div>
+      <div class="ph ph--dark ph--1x1" data-label="Photo"></div>
+      <div class="ph ph--dark ph--1x1" data-label="Photo"></div>
+      <div class="ph ph--dark ph--1x1" data-label="Photo"></div>
+      <div class="ph ph--dark ph--1x1" data-label="Photo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TIMELINE ═══════════════════ -->
+<section class="section section--alt" id="journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Journey</p>
+      <h2 class="h2">How it went.</h2>
+      <p class="lede">Degree, club, competition and work in one line.</p>
+    </div>
+
+    <ol class="timeline reveal">
+      <li class="tl-item">
+        <p class="tl-year">2021</p>
+        <h3 class="tl-title">Started mechanical engineering</h3>
+        <p class="tl-org">University of Michigan</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2022</p>
+        <h3 class="tl-title">Founded the judo club</h3>
+        <p class="tl-org">University of Michigan</p>
+        <p class="tl-text">Sourced and imported the mats, recruited the first members, began coaching.</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2022</p>
+        <h3 class="tl-title">X-Force Fellowship</h3>
+        <p class="tl-org">U.S. Air Force — Department of Defense</p>
+        <p class="tl-text">Agile Combat Deployment: runway repair and rapid construction. Northern Agility 22-1.</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2022–2024</p>
+        <h3 class="tl-title">State champion, three years running</h3>
+        <p class="tl-org">Meijer State Games of Michigan — United States Judo Federation</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2023</p>
+        <h3 class="tl-title">X-Force Fellowship</h3>
+        <p class="tl-org">U.S. Navy — NSWC Crane Division</p>
+        <p class="tl-text">Radiation shielding for microelectronics; cryogenic conductor insulation.</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2023</p>
+        <h3 class="tl-title">Renewable energy research</h3>
+        <p class="tl-org">Technische Universität Berlin — study abroad</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2024</p>
+        <h3 class="tl-title">Third place, national collegiate championships</h3>
+        <p class="tl-org">NCJA College and High School Championships</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2024</p>
+        <h3 class="tl-title">Summer coursework in Madrid</h3>
+        <p class="tl-org">Nebrija University — study abroad</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2025</p>
+        <h3 class="tl-title">Graduated, B.S.E. Mechanical Engineering</h3>
+        <p class="tl-org">University of Michigan</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2025 — present</p>
+        <h3 class="tl-title">Field engineer</h3>
+        <p class="tl-org">Asset integrity consultancy — refinery assets</p>
+        <p class="tl-text">Vibration measurement and remediation design on small-bore piping.</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">2026</p>
+        <h3 class="tl-title">NASA Proposal Writing and Evaluation Experience</h3>
+        <p class="tl-org">NASA</p>
+        <p class="tl-text">Research, CAD and statistical analysis on the team proposal; trained as a reviewer.</p>
+      </li>
+      <li class="tl-item">
+        <p class="tl-year">Today</p>
+        <h3 class="tl-title">Still coaching, still competing</h3>
+        <p class="tl-org">University of Michigan judo club</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Testimonials</p>
+      <h2 class="h2">What people say.</h2>
+      <p class="lede">
+        From the people I've worked for, studied under, and coached. Ask each person for
+        two or three sentences and paste them straight in.
+      </p>
+    </div>
+
+    <div class="quotes reveal" id="quotes">
+      <figure class="quote">
+        <div class="quote__mark">"</div>
+        <p class="quote__text">[Quote from a manager or senior engineer at the consultancy — how you work on site, under pressure, with clients.]</p>
+        <figcaption class="quote__person">
+          <div class="quote__avatar">—</div>
+          <div><div class="quote__name">[Name]</div><div class="quote__role">[Role], asset integrity consultancy</div></div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <div class="quote__mark">"</div>
+        <p class="quote__text">[Quote from your TU Berlin research supervisor — technical ability, independence, working in a second language.]</p>
+        <figcaption class="quote__person">
+          <div class="quote__avatar">—</div>
+          <div><div class="quote__name">[Name]</div><div class="quote__role">Research supervisor, TU Berlin</div></div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <div class="quote__mark">"</div>
+        <p class="quote__text">[Quote from an athlete you coached — what changed for them, what you're like in their corner.]</p>
+        <figcaption class="quote__person">
+          <div class="quote__avatar">—</div>
+          <div><div class="quote__name">[Name]</div><div class="quote__role">Club member and competitor</div></div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <div class="quote__mark">"</div>
+        <p class="quote__text">[Quote from a club officer, rec sports administrator, or faculty advisor — what it took to get the club off the ground.]</p>
+        <figcaption class="quote__person">
+          <div class="quote__avatar">—</div>
+          <div><div class="quote__name">[Name]</div><div class="quote__role">[Role], University of Michigan</div></div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <div class="quote__mark">"</div>
+        <p class="quote__text">[Quote from your NASA mentor or fellowship supervisor — the strongest name on this list, so ask early and ask specifically.]</p>
+        <figcaption class="quote__person">
+          <div class="quote__avatar">—</div>
+          <div><div class="quote__name">[Name]</div><div class="quote__role">X-Force project sponsor / mentor</div></div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="quotes-nav reveal">
+      <button class="qbtn" id="qPrev" aria-label="Previous testimonials">‹</button>
+      <button class="qbtn" id="qNext" aria-label="Next testimonials">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ OFF THE CLOCK ═══════════════════ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Off the clock</p>
+      <h2 class="h2">The rest of it.</h2>
+    </div>
+    <div class="interests reveal">
+      <div class="interest">
+        <h3>Reading</h3>
+        <p>Mostly non-fiction. <em>The 4-Hour Workweek</em> is the one that actually changed something — I read it in 2018 and started paying attention to how people build things for themselves. <em>Atomic Habits</em> earned its reputation. Outside that, <em>Crime and Punishment</em> is the novel I keep coming back to.</p>
+      </div>
+      <div class="interest">
+        <h3>Training</h3>
+        <p>Lifting heavy, most days that judo doesn't already have me on the mat. Badminton when I want to move without getting thrown.</p>
+      </div>
+      <div class="interest">
+        <h3>Cars</h3>
+        <p>Started buying damaged cars with a friend in 2015, fixing them and selling them on. Since then: brakes and full system flushes on a Civic, a Chrysler 200 and an Elantra; engine mounts on an Odyssey; struts and suspension; aux and charging retrofits; and a complete front end on a Civic — bumper, fender, headlight.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CV BAND ═══════════════════ -->
+<section class="section" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="band reveal">
+      <h2 class="h2">The whole thing, on one page.</h2>
+      <p class="lede">Full history of roles, research, education and results.</p>
+      <div class="band__cta">
+        <!-- Put a file named cv.pdf next to index.html and this button works -->
+        <a class="btn btn--primary" href="cv.pdf" download>Download CV (PDF)</a>
+        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 class="h2">Get in touch.</h2>
+        <p class="lede" style="margin-top:18px">
+          Open to engineering roles, coaching conversations, and anyone trying to
+          start a club of their own.
+        </p>
+
+        <ul class="contact-list">
+          <li><span>Email</span><a href="mailto:hazemturaani@gmail.com">hazemturaani@gmail.com</a></li>
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/haazem-turaani-71045278/" target="_blank" rel="noopener">haazem-turaani</a></li>
+          <li><span>In the press</span><a href="https://cfe.umich.edu/from-fixing-cars-to-launching-aircrafts-haazem-turaani-student-spotlight/" target="_blank" rel="noopener">Michigan Center for Entrepreneurship — student spotlight</a></li>
+          <li><span>Location</span><span class="plain">Ann Arbor, Michigan · travels for site work</span></li>
+        </ul>
+      </div>
+
+      <!-- FORM SETUP: sign up free at formspree.io, paste your form URL into action="" -->
+      <form class="form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Write your message…"></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit">Send message</button>
+        <p class="form__note">Connect this form to a free Formspree account to start receiving messages.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span id="year">2026</span> Hazem Turaani</p>
+    <nav>
+      <a href="#engineering">Engineering</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#judo">Judo</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* ── 1. Mobile menu ─────────────────────────────────────────────── */
+const nav = document.getElementById('nav');
+const toggle = document.getElementById('navToggle');
+toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('#navLinks a').forEach(a =>
+  a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  })
+);
+
+/* ── 2. Fade sections in as you scroll ──────────────────────────── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ── 3. Testimonial arrows ──────────────────────────────────────── */
+const quotes = document.getElementById('quotes');
+const step = () => Math.min(quotes.clientWidth * 0.8, 400);
+document.getElementById('qPrev').onclick = () => quotes.scrollBy({ left: -step(), behavior: 'smooth' });
+document.getElementById('qNext').onclick = () => quotes.scrollBy({ left:  step(), behavior: 'smooth' });
+
+/* ── 4. Footer year updates itself ──────────────────────────────── */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
