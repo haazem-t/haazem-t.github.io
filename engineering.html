@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Engineering work — Hazem Turaani</title>
+<meta name="description" content="Projects, fellowships and field work: X-Force with the U.S. Air Force and Navy, refinery vibration and piping integrity, renewable energy research at TU Berlin.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Inter:wght@400;500;600&display=swap">
+
+<!-- Same stylesheet as the home page — edit style.css and it changes everywhere. -->
+<link rel="stylesheet" href="style.css">
+
+<script>
+/* If a photo file isn't uploaded yet, show the grey placeholder instead of a
+   broken-image icon. Upload the file with the matching name and it appears. */
+function phFallback(img){
+  var d=document.createElement('div');
+  d.className=img.getAttribute('data-ph')||'ph ph--4x3';
+  if(d.className.indexOf('hero__portrait')>-1){ d.textContent='Portrait'; }
+  else { d.setAttribute('data-label', img.getAttribute('data-label')||'Photo'); }
+  img.replaceWith(d);
+}
+</script>
+
+</head>
+
+<body>
+
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="index.html" class="nav__logo">Hazem Turaani</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="judo.html">Judo</a></li>
+      <li><a href="index.html#journey">Journey</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════ PAGE HEAD ═══════════════════ -->
+<header class="page-head">
+  <div class="wrap">
+    <a class="backlink" href="index.html">Back to home</a>
+    <h1 class="display">Engineering work.</h1>
+    <p class="lede">
+      Fellowships, field work and research — in full, with the detail that didn't fit
+      on the front page.
+    </p>
+    <nav class="jump">
+      <a href="#xforce-2022">X-Force · Air Force</a>
+      <a href="#xforce-2023">X-Force · Navy</a>
+      <a href="#field">Refinery field work</a>
+      <a href="#berlin">TU Berlin research</a>
+      <a href="#nasa">NASA PWEE</a>
+      <a href="#capstone">University projects</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ═══════════════════ X-FORCE 2022 ═══════════════════ -->
+<article class="entry" id="xforce-2022">
+  <div class="entry__meta">
+    <span class="entry__year">2022</span>
+    <span class="entry__tag">X-Force Fellowship · U.S. Air Force</span>
+  </div>
+  <h2 class="h2">Eight hours to build a runway.</h2>
+
+  <div class="entry__body">
+    <p>
+      The X-Force Fellowship places small teams of students with a Department of Defense sponsor
+      for ten weeks, full-time and paid, on a problem the sponsor actually has. Mine came from the
+      U.S. Air Force, and it was blunt: <strong>repair a damaged runway, or stand up a new one,
+      in under eight hours.</strong>
+    </p>
+    <p>
+      Six of us worked it. Eight days of that summer were spent at the Northern Agility 22-1
+      exercise in Michigan's Upper Peninsula, watching a stretch of the M-28 highway become an
+      active runway for nearly seven hours — the setting for the first full Integrated Combat Turn
+      (refuelling and rearming a fighter) ever performed on a public highway in the United States.
+    </p>
+    <p>
+      My share of the work was the ground truth and the numbers. I interviewed Air Force civil
+      engineers, firefighters and pilots at K.I. Sawyer about what actually slows a repair down.
+      I called equipment manufacturers — Hitachi and Bobcat among them — to find out what their
+      machines could really do in the field rather than in a brochure. And I ran the calculations
+      on surface thickness: how much material a fighter needs beneath it to land and take off
+      without tearing the surface apart.
+    </p>
+    <p>We delivered a proof of concept at the end of the ten weeks.</p>
+
+    <!-- [ADD: anything else you can say publicly about the approach or outcome] -->
+  </div>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="eng-runway.jpeg" alt="M-28 highway configured as a runway" data-ph="ph ph--16x9" data-label="Northern Agility 22-1 — highway runway" onerror="phFallback(this)">
+    <figcaption>[Caption: what this photo shows and roughly when it was taken.]</figcaption>
+  </figure>
+
+  <div class="figrow">
+    <figure class="figure">
+      <img class="photo photo--4x3" src="eng-sawyer.jpeg" alt="At K.I. Sawyer Air Base" data-ph="ph ph--4x3" data-label="K.I. Sawyer / interviews" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+    <figure class="figure">
+      <img class="photo photo--4x3" src="eng-runway-diagram.jpeg" alt="Diagram of the runway surface thickness calculation" data-ph="ph ph--4x3" data-label="Runway thickness diagram" onerror="phFallback(this)">
+      <figcaption>[Caption — a diagram or sketch of your surface calculation works well here.]</figcaption>
+    </figure>
+  </div>
+</article>
+
+<!-- ═══════════════════ X-FORCE 2023 ═══════════════════ -->
+<article class="entry" id="xforce-2023">
+  <div class="entry__meta">
+    <span class="entry__year">2023</span>
+    <span class="entry__tag">X-Force Fellowship · U.S. Navy, NSWC Crane</span>
+  </div>
+  <h2 class="h2">Radiation, cryogenics, and a lattice of aluminium.</h2>
+
+  <div class="entry__body">
+    <p>
+      I was selected a second time, now with the U.S. Navy at Naval Surface Warfare Center,
+      Crane Division. Three of us, ten weeks, and two problems running in parallel:
+      <strong>shielding microelectronics against radiation damage</strong>, and
+      <strong>insulating conductors at cryogenic temperatures.</strong>
+    </p>
+    <p>
+      My work sat mostly on the first. I researched how radiation degrades electronics at the
+      material level — what happens inside a silicon wafer when it's struck, and why that
+      eventually shows up as a failed component. On the cryogenic side I ran molecular dynamics
+      simulations of an aluminium lattice in LAMMPS to see how the structure behaves as
+      temperature drops.
+    </p>
+    <p>The deliverables aren't public.</p>
+
+    <!-- [ADD: anything more you're cleared to say — methods, tools, what you learned] -->
+  </div>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="eng-lammps.jpeg" alt="LAMMPS simulation of an aluminium lattice" data-ph="ph ph--16x9" data-label="LAMMPS simulation output or lab photo" onerror="phFallback(this)">
+    <figcaption>[Caption — a simulation screenshot works well here if you have one you can share.]</figcaption>
+  </figure>
+</article>
+
+<!-- ═══════════════════ FIELD WORK ═══════════════════ -->
+<article class="entry" id="field">
+  <div class="entry__meta">
+    <span class="entry__year">2025 — present</span>
+    <span class="entry__tag">Field engineer · Asset integrity</span>
+  </div>
+  <h2 class="h2">On site, on the pipe.</h2>
+
+  <div class="entry__body">
+    <p>
+      Piping in a refinery is never still. Pumps, compressors and flow turbulence shake it
+      constantly, and <strong>small-bore connections</strong> — the little branch lines coming off
+      the main run — are where that shaking does its damage first. They're short, stiff, poorly
+      supported, and they fail by fatigue long before the big line does.
+    </p>
+    <p>
+      I travel to the units, clamp accelerometers onto those connections while the plant is
+      running, and record how much they're moving. The readings get screened against API
+      acceptance criteria. Anything over the limit becomes my problem to solve: what to brace,
+      where to brace it, and how — a judgement that depends on the pipe size, the configuration,
+      and the data I just collected.
+    </p>
+    <p>
+      Roughly four sites a year so far. North Dakota, Kentucky, Minnesota, Michigan, California.
+    </p>
+
+    <!-- [ADD: a specific job you're proud of — what you found, what you recommended, what it prevented.
+         Keep the client anonymous if your contract requires it.] -->
+  </div>
+
+  <div class="figrow">
+    <figure class="figure">
+      <img class="photo photo--4x3" src="eng-accelerometer.jpeg" alt="Accelerometer clamped to a small-bore connection" data-ph="ph ph--4x3" data-label="Accelerometer on small-bore connection" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+    <figure class="figure">
+      <img class="photo photo--4x3" src="eng-refinery.jpeg" alt="Refinery unit during a vibration survey" data-ph="ph ph--4x3" data-label="Refinery unit / site photo" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+  </div>
+</article>
+
+<!-- ═══════════════════ TU BERLIN ═══════════════════ -->
+<article class="entry" id="berlin">
+  <div class="entry__meta">
+    <span class="entry__year">2023</span>
+    <span class="entry__tag">Research · Technische Universität Berlin</span>
+  </div>
+  <h2 class="h2">Where you put the energy depends on where you are.</h2>
+
+  <div class="entry__body">
+    <p>
+      A semester at TU Berlin spent working through how solar, wind and storage behave as a single
+      system rather than three separate technologies — how a panel actually produces, how a turbine
+      actually produces, and what storage has to absorb to hold the two together.
+    </p>
+    <p>
+      The question I ended on was practical: <strong>what's the right way to store energy in
+      different regions of the United States?</strong> Geography decides more of the answer than
+      the technology does. I built the models in Python and simulated complete renewable systems
+      for three U.S. cities, then compared them against each other on the basis of where they sit.
+    </p>
+
+    <!-- [ADD: which three cities, and what the comparison actually showed. That result is the
+         most interesting sentence on this page and it's currently missing.] -->
+  </div>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="eng-berlin-chart.jpeg" alt="Comparison of renewable systems across three US cities" data-ph="ph ph--16x9" data-label="Simulation output / comparison chart" onerror="phFallback(this)">
+    <figcaption>[Caption — a chart from your Python model would be ideal here.]</figcaption>
+  </figure>
+</article>
+
+<!-- ═══════════════════ NASA PWEE ═══════════════════ -->
+<article class="entry" id="nasa">
+  <div class="entry__meta">
+    <span class="entry__year">2026</span>
+    <span class="entry__tag">NASA Proposal Writing and Evaluation Experience</span>
+  </div>
+  <h2 class="h2">Learning how NASA decides what to fund.</h2>
+
+  <div class="entry__body">
+    <p>
+      A full-semester, fifteen-week academy that runs you through NASA's proposal process from the
+      inside: identify a genuine NASA need, scope a response against a real solicitation, and write
+      the proposal as a team.
+    </p>
+    <p>
+      I handled the topic research, the CAD modelling and the statistical analysis for our
+      submission. We didn't place. Afterwards I was trained as a reviewer and scored four other
+      teams' proposals — which taught me considerably more about what makes a proposal work than
+      writing our own had.
+    </p>
+
+    <!-- [ADD: what solicitation or topic your team proposed against. One sentence.] -->
+  </div>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="eng-nasa-cad.jpeg" alt="CAD model from the NASA proposal" data-ph="ph ph--16x9" data-label="CAD model from the proposal" onerror="phFallback(this)">
+    <figcaption>[Caption]</figcaption>
+  </figure>
+</article>
+
+<!-- ═══════════════════ UNIVERSITY PROJECTS ═══════════════════
+     Duplicate this whole <article> block for each additional project.
+     ══════════════════════════════════════════════════════════════ -->
+<article class="entry" id="capstone">
+  <div class="entry__meta">
+    <span class="entry__year">[Year]</span>
+    <span class="entry__tag">[Course or context — e.g. senior capstone]</span>
+  </div>
+  <h2 class="h2">[Project title.]</h2>
+
+  <div class="entry__body">
+    <p>[What the brief was, and what constraint made it hard.]</p>
+    <p>[What you personally designed, built, modelled or tested — and with what tools.]</p>
+    <p>[What the result was. A number beats an adjective.]</p>
+  </div>
+
+  <div class="figrow">
+    <figure class="figure">
+      <img class="photo photo--4x3" src="eng-project-1.jpeg" alt="University project" data-ph="ph ph--4x3" data-label="CAD render or photo" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+    <figure class="figure">
+      <img class="photo photo--4x3" src="eng-project-2.jpeg" alt="University project" data-ph="ph ph--4x3" data-label="Test rig, drawing or result" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+  </div>
+</article>
+
+</div><!-- /wrap -->
+
+<!-- ═══════════════════ FOOT CTA ═══════════════════ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="band">
+      <h2 class="h2">Want the short version?</h2>
+      <p class="lede">The home page has the highlights, plus judo, leadership and how to reach me.</p>
+      <div class="band__cta">
+        <a class="btn btn--primary" href="index.html">Back to home</a>
+        <a class="btn btn--ghost" href="cv.pdf" download>Download CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span id="year">2026</span> Hazem Turaani</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="judo.html">Judo</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+const toggle = document.getElementById('navToggle');
+toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('#navLinks a').forEach(a =>
+  a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  })
+);
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

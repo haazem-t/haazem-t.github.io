@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Judo — Hazem Turaani</title>
+<meta name="description" content="Founding the University of Michigan judo club, importing the mats from China, coaching to seven team championships, and three consecutive state titles.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Inter:wght@400;500;600&display=swap">
+
+<!-- Same stylesheet as the home page — edit style.css and it changes everywhere. -->
+<link rel="stylesheet" href="style.css">
+
+<script>
+/* If a photo file isn't uploaded yet, show the grey placeholder instead of a
+   broken-image icon. Upload the file with the matching name and it appears. */
+function phFallback(img){
+  var d=document.createElement('div');
+  d.className=img.getAttribute('data-ph')||'ph ph--4x3';
+  if(d.className.indexOf('hero__portrait')>-1){ d.textContent='Portrait'; }
+  else { d.setAttribute('data-label', img.getAttribute('data-label')||'Photo'); }
+  img.replaceWith(d);
+}
+</script>
+
+</head>
+
+<body>
+
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="index.html" class="nav__logo">Hazem Turaani</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="engineering.html">Engineering</a></li>
+      <li><a href="index.html#journey">Journey</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════ PAGE HEAD ═══════════════════ -->
+<header class="page-head page-head--dark">
+  <div class="wrap">
+    <a class="backlink" href="index.html">Back to home</a>
+    <h1 class="display">Judo.</h1>
+    <p class="lede">
+      Building a club from an empty room, coaching it to seven championships,
+      and competing the whole way through.
+    </p>
+    <nav class="jump">
+      <a href="#building">Building the club</a>
+      <a href="#mats">The mats</a>
+      <a href="#coaching">Coaching</a>
+      <a href="#competing">Competing</a>
+      <a href="#gallery">Photographs</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ═══════════════════ BUILDING THE CLUB ═══════════════════ -->
+<article class="entry" id="building">
+  <div class="entry__meta">
+    <span class="entry__year">2022</span>
+    <span class="entry__tag">Founding</span>
+  </div>
+  <h2 class="h2">There was no club, so I started one.</h2>
+
+  <div class="entry__body">
+    <p>
+      The University of Michigan didn't have a judo club. Starting one turns out to be far less
+      about judo than you'd think — it's paperwork, insurance, university approvals, a room you're
+      allowed to use at hours people will actually come, and <strong>ten founding members</strong>
+      you have to find before the university will recognise you exist.
+    </p>
+    <p>
+      We got the ten. Four years on there are around fifty.
+    </p>
+
+    <!-- [ADD: what the first few months were actually like. The hard part, the thing that nearly
+         killed it, the moment you knew it would survive. This is the section a non-engineer
+         reader will enjoy most, so it's worth writing properly.] -->
+  </div>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="judo-early.jpeg" alt="One of the club's first training sessions" data-ph="ph ph--16x9" data-label="Early club photo — first sessions" onerror="phFallback(this)">
+    <figcaption>[Caption]</figcaption>
+  </figure>
+</article>
+
+<!-- ═══════════════════ THE MATS ═══════════════════ -->
+<article class="entry" id="mats">
+  <div class="entry__meta">
+    <span class="entry__year">2022</span>
+    <span class="entry__tag">Logistics</span>
+  </div>
+  <h2 class="h2">The mats came from China. I got them off the boat.</h2>
+
+  <div class="entry__body">
+    <p>
+      A judo club is a floor before it is anything else. You cannot throw people onto a gym floor,
+      and a domestic tatami order was far beyond what a brand new student group could fund.
+    </p>
+    <p>
+      So I went around it. I sourced the mats from a manufacturer in China and negotiated the
+      order directly — <strong>64 square metres of tatami, about 690 square feet, for roughly
+      $5,000.</strong> Then came the part nobody warns you about: arranging international freight,
+      getting the import documentation right, clearing customs, and physically collecting a pallet
+      of mats from a port. Then laying the floor.
+    </p>
+    <p>
+      It was the first project I ever ran end to end, and I've since done fellowship work for two
+      branches of the armed forces without anything feeling quite as difficult.
+    </p>
+
+    <!-- [ADD: the bit that went wrong. Every import story has one, and it's the most memorable
+         part. Customs hold, wrong quantity, a delivery you had to move yourself — whatever it was.] -->
+  </div>
+
+  <div class="figrow">
+    <figure class="figure">
+      <img class="photo photo--4x3" src="judo-pallet.jpeg" alt="Imported tatami mats on the pallet" data-ph="ph ph--4x3" data-label="Mats arriving / on the pallet" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+    <figure class="figure">
+      <img class="photo photo--4x3" src="judo-floor.jpeg" alt="The finished tatami floor" data-ph="ph ph--4x3" data-label="The finished floor" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+  </div>
+</article>
+
+<!-- ═══════════════════ COACHING ═══════════════════ -->
+<article class="entry" id="coaching">
+  <div class="entry__meta">
+    <span class="entry__year">2022 — present</span>
+    <span class="entry__tag">Head coach · volunteer</span>
+  </div>
+  <h2 class="h2">Seven team championships.</h2>
+
+  <div class="entry__body">
+    <p>
+      I've coached the club since the day it opened, unpaid, as a volunteer. In that time the team
+      has won <strong>three state championships, two regional championships and two national
+      collegiate championships.</strong>
+    </p>
+    <p>
+      The number I'm prouder of is quieter: our first competition entry was three people. We now
+      send twenty-four. Most of them had never done judo before they walked into our room, and the
+      job that actually matters is the route between those two states — taking someone who can't
+      yet fall safely and getting them onto a competition mat without either injuring them or
+      frightening them off.
+    </p>
+
+    <!-- [ADD: how you coach. What you insist on, what you let go, and one athlete's progression
+         you're proud of. Name them if they're happy to be named.] -->
+  </div>
+
+  <ul class="record">
+    <li>
+      <span class="record__n">3×</span>
+      <span class="record__what">State champions</span>
+      <span class="record__lvl">Team · as head coach</span>
+    </li>
+    <li>
+      <span class="record__n">2×</span>
+      <span class="record__what">Regional champions</span>
+      <span class="record__lvl">Team · as head coach</span>
+    </li>
+    <li>
+      <span class="record__n">2×</span>
+      <span class="record__what">National collegiate champions</span>
+      <span class="record__lvl">Team · as head coach</span>
+    </li>
+  </ul>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="judo-team.jpeg" alt="The team at a championship" data-ph="ph ph--16x9" data-label="Team photo at a championship" onerror="phFallback(this)">
+    <figcaption>[Caption]</figcaption>
+  </figure>
+</article>
+
+<!-- ═══════════════════ COMPETING ═══════════════════ -->
+<article class="entry" id="competing">
+  <div class="entry__meta">
+    <span class="entry__year">2022 — present</span>
+    <span class="entry__tag">Competitor · ikyu</span>
+  </div>
+  <h2 class="h2">Three state titles, back to back.</h2>
+
+  <div class="entry__body">
+    <p>
+      I compete as well as coach. <strong>Three consecutive state titles at the Meijer State Games
+      of Michigan</strong> under the United States Judo Federation, across 2022, 2023 and 2024, and
+      <strong>third place at the NCJA College and High School Championships</strong> in 2024.
+    </p>
+    <p>
+      Six years on the mat, currently ikyu. Running the club has cost me some of my own training
+      time — you cannot coach a session and take it at the same time — and my grading has moved
+      slower than it would have otherwise. That's a trade I'd make again.
+    </p>
+
+    <!-- [ADD: your best match, your worst loss, or what competing gave you that coaching doesn't.] -->
+  </div>
+
+  <ul class="record">
+    <li>
+      <span class="record__n">3×</span>
+      <span class="record__what">State champion</span>
+      <span class="record__lvl">Meijer State Games of Michigan · USJF</span>
+    </li>
+    <li>
+      <span class="record__n">3rd</span>
+      <span class="record__what">National collegiate</span>
+      <span class="record__lvl">NCJA College &amp; High School Championships, 2024</span>
+    </li>
+  </ul>
+</article>
+
+<!-- ═══════════════════ GALLERY ═══════════════════ -->
+<article class="entry" id="gallery">
+  <div class="entry__meta">
+    <span class="entry__tag">Photographs</span>
+  </div>
+  <h2 class="h2">On the mat.</h2>
+
+  <div class="gallery" style="margin-top:40px">
+    <img class="photo" src="judo-gallery-main.jpeg" alt="Judo photograph" data-ph="ph" data-label="Main photo" onerror="phFallback(this)">
+    <img class="photo photo--1x1" src="judo-gallery-1.jpeg" alt="Judo photograph" data-ph="ph ph--1x1" data-label="Photo" onerror="phFallback(this)">
+    <img class="photo photo--1x1" src="judo-gallery-2.jpeg" alt="Judo photograph" data-ph="ph ph--1x1" data-label="Photo" onerror="phFallback(this)">
+    <img class="photo photo--1x1" src="judo-gallery-3.jpeg" alt="Judo photograph" data-ph="ph ph--1x1" data-label="Photo" onerror="phFallback(this)">
+    <img class="photo photo--1x1" src="judo-gallery-4.jpeg" alt="Judo photograph" data-ph="ph ph--1x1" data-label="Photo" onerror="phFallback(this)">
+  </div>
+</article>
+
+</div><!-- /wrap -->
+
+<!-- ═══════════════════ FOOT CTA ═══════════════════ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="band">
+      <h2 class="h2">Thinking of starting a club?</h2>
+      <p class="lede">
+        I've done the mats, the paperwork and the first ten members. Happy to tell you
+        what I'd do differently.
+      </p>
+      <div class="band__cta">
+        <a class="btn btn--primary" href="index.html#contact">Get in touch</a>
+        <a class="btn btn--ghost" href="index.html">Back to home</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span id="year">2026</span> Hazem Turaani</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="engineering.html">Engineering</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+const toggle = document.getElementById('navToggle');
+toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('#navLinks a').forEach(a =>
+  a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  })
+);
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
