@@ -216,11 +216,35 @@ p{ margin:0; }
 .figrow .figure:nth-child(1) .frame > .photo{ transform:scale(calc(1.11 - var(--p,.5)*.06)) translateY(calc((.5 - var(--p,.5)) *  4%)); }
 .figrow .figure:nth-child(2) .frame > .photo{ transform:scale(calc(1.11 - var(--p,.5)*.06)) translateY(calc((.5 - var(--p,.5)) * -1%)); }
 
-/* Hero recedes as you scroll past it, the way a title card should. */
-.hero__content{
-  opacity:calc(1 - var(--hp,0) * 1.35);
-  transform:translateY(calc(var(--hp,0) * -50px)) scale(calc(1 - var(--hp,0) * .02));
-  will-change:opacity, transform;
+/* Hero: the composition opens outward as you scroll. Nothing fades — the
+   headline stays fully legible the whole way down, it just spreads.
+   --hp runs 0 to 1 over the first 80% of a screen height of scrolling. */
+.hero__title{ overflow:visible; }
+.hero__line{ display:block; will-change:transform; }
+.hero__line--l{ transform:translateX(calc(var(--hp,0) * -7vw)); }
+.hero__line--r{ transform:translateX(calc(var(--hp,0) *  7vw)); }
+
+/* The two buttons ease apart by a smaller amount, so the whole block
+   reads as one gesture rather than two unrelated ones. */
+.hero__cta .btn:nth-child(1){ transform:translateX(calc(var(--hp,0) * -3vw)); }
+.hero__cta .btn:nth-child(2){ transform:translateX(calc(var(--hp,0) *  3vw)); }
+
+/* The lede opens a little too — barely, just enough to feel connected. */
+.hero__content .lede{
+  transform:scaleX(calc(1 + var(--hp,0) * .012));
+  transform-origin:center;
+}
+
+/* The "Scroll" prompt has done its job once you've scrolled. */
+.hero__scroll{ opacity:calc(1 - var(--hp,0) * 2.2); }
+
+/* Narrower screens: the headline already wraps, so a big spread would push
+   words off the edge. Same gesture, quarter of the distance. */
+@media (max-width:760px){
+  .hero__line--l{ transform:translateX(calc(var(--hp,0) * -2vw)); }
+  .hero__line--r{ transform:translateX(calc(var(--hp,0) *  2vw)); }
+  .hero__cta .btn:nth-child(1){ transform:translateX(calc(var(--hp,0) * -1.5vw)); }
+  .hero__cta .btn:nth-child(2){ transform:translateX(calc(var(--hp,0) *  1.5vw)); }
 }
 
 /* Text inside a feature row arrives a beat after the photo, line by line. */
@@ -252,7 +276,9 @@ p{ margin:0; }
   .frame > .photo,
   .gallery > .frame > .photo,
   .figrow .figure .frame > .photo{ transform:none !important; }
-  .hero__content{ opacity:1 !important; transform:none !important; }
+  .hero__content,.hero__line,.hero__cta .btn,.hero__content .lede,.hero__scroll{
+    opacity:1 !important; transform:none !important;
+  }
   .feature__text > *{ opacity:1 !important; transform:none !important; transition:none !important; }
   .stats__grid.in .stat{ animation:none !important; }
 }

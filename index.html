@@ -58,7 +58,12 @@ function phFallback(img){
 <section class="hero">
   <div class="wrap hero__content">
     <img class="hero__portrait" src="hazem.jpeg" alt="Hazem Turaani" data-ph="hero__portrait" onerror="phFallback(this)">
-    <h1 class="display">Mechanical engineer. Founding judo coach.</h1>
+    <!-- The two halves drift apart as you scroll. Keep them as separate
+         spans; the text itself can say anything you like. -->
+    <h1 class="display hero__title">
+      <span class="hero__line hero__line--l">Mechanical engineer.</span>
+      <span class="hero__line hero__line--r">Founding judo coach.</span>
+    </h1>
     <p class="lede">
       I measure vibration on refinery piping for a living, and I coach the judo club
       I founded at the University of Michigan. Both jobs come down to the same thing —
