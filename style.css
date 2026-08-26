@@ -168,9 +168,93 @@ p{ margin:0; }
 
 .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
 .reveal.in{ opacity:1; transform:none; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   SCROLL MOTION
+   motion.js writes a number from 0 to 1 into --p as each photo travels
+   up the screen. Everything below reads that number and turns it into
+   movement. Bigger numbers here = more motion. All of it is transform
+   only, which the graphics card handles, so it stays smooth.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* The clipping box motion.js builds around every photo. */
+.frame{
+  position:relative; display:block; width:100%; overflow:hidden;
+  border-radius:var(--radius); border:1px solid var(--line);
+  background:#e7e1d6;
+}
+.frame--4x3 { aspect-ratio:4/3; }
+.frame--1x1 { aspect-ratio:1/1; }
+.frame--16x9{ aspect-ratio:16/9; }
+
+/* The photo drifts from slightly enlarged to nearly settled as it passes.
+   It stays above 1.04 so the slide never exposes an edge. */
+.frame > .photo{
+  width:100%; height:100%; aspect-ratio:auto;
+  object-fit:cover; border:0; border-radius:0;
+  transform:
+    scale(calc(1.10 - var(--p,.5) * .06))
+    translateY(calc((.5 - var(--p,.5)) * 3%));
+}
+
+/* Inside cards the frame sits flush to the edges. */
+.card .frame{ border:0; border-radius:0; border-bottom:1px solid var(--line); }
+
+/* On the dark judo section the empty frame should be dark, not paper. */
+.dark .frame{ background:#272119; border-color:rgba(255,255,255,.10); }
+
+/* A feature row shouldn't fade in as a block AND stagger its text — that
+   reads as mush. The photo is simply there; the words arrive. */
+.feature.reveal{ opacity:1; transform:none; transition:none; }
+
+/* Gallery tiles drift at slightly different rates so the grid breathes
+   instead of moving as one slab. */
+.gallery > .frame:nth-child(2n) > .photo{ transform:scale(calc(1.12 - var(--p,.5)*.06)) translateY(calc((.5 - var(--p,.5)) * 5%)); }
+.gallery > .frame:nth-child(3n) > .photo{ transform:scale(calc(1.09 - var(--p,.5)*.05)) translateY(calc((.5 - var(--p,.5)) * 2%)); }
+
+/* Paired photos lean against each other — one rises faster than the other. */
+.figrow .figure:nth-child(1) .frame > .photo{ transform:scale(calc(1.11 - var(--p,.5)*.06)) translateY(calc((.5 - var(--p,.5)) *  4%)); }
+.figrow .figure:nth-child(2) .frame > .photo{ transform:scale(calc(1.11 - var(--p,.5)*.06)) translateY(calc((.5 - var(--p,.5)) * -1%)); }
+
+/* Hero recedes as you scroll past it, the way a title card should. */
+.hero__content{
+  opacity:calc(1 - var(--hp,0) * 1.35);
+  transform:translateY(calc(var(--hp,0) * -50px)) scale(calc(1 - var(--hp,0) * .02));
+  will-change:opacity, transform;
+}
+
+/* Text inside a feature row arrives a beat after the photo, line by line. */
+.feature__text > *{
+  opacity:0; transform:translateY(16px);
+  transition:opacity .7s var(--ease), transform .7s var(--ease);
+}
+.feature.in .feature__text > *{ opacity:1; transform:none; }
+.feature.in .feature__text > *:nth-child(1){ transition-delay:.06s; }
+.feature.in .feature__text > *:nth-child(2){ transition-delay:.12s; }
+.feature.in .feature__text > *:nth-child(3){ transition-delay:.18s; }
+.feature.in .feature__text > *:nth-child(4){ transition-delay:.24s; }
+.feature.in .feature__text > *:nth-child(5){ transition-delay:.30s; }
+.feature.in .feature__text > *:nth-child(n+6){ transition-delay:.36s; }
+
+/* Stat numbers rise into place one after another. */
+.stats__grid.in .stat{ animation:statRise .7s var(--ease) both; }
+.stats__grid.in .stat:nth-child(1){ animation-delay:.00s; }
+.stats__grid.in .stat:nth-child(2){ animation-delay:.08s; }
+.stats__grid.in .stat:nth-child(3){ animation-delay:.16s; }
+.stats__grid.in .stat:nth-child(4){ animation-delay:.24s; }
+@keyframes statRise{ from{ opacity:0; transform:translateY(14px); } to{ opacity:1; transform:none; } }
+
+/* Everything above is decoration. If the reader has asked their system
+   to reduce motion, none of it runs. */
 @media (prefers-reduced-motion:reduce){
   html{ scroll-behavior:auto; }
   .reveal{ opacity:1; transform:none; transition:none; }
+  .frame > .photo,
+  .gallery > .frame > .photo,
+  .figrow .figure .frame > .photo{ transform:none !important; }
+  .hero__content{ opacity:1 !important; transform:none !important; }
+  .feature__text > *{ opacity:1 !important; transform:none !important; transition:none !important; }
+  .stats__grid.in .stat{ animation:none !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -182,9 +266,9 @@ p{ margin:0; }
    the top edge that real glass has. */
 .nav{
   position:fixed; inset:0 0 auto 0; z-index:100; height:64px;
-    background:linear-gradient(to bottom, rgba(255,254,252,.20), rgba(250,248,244,.18));
-  backdrop-filter:blur(10px) saturate(110%) brightness(1.08);
-  -webkit-backdrop-filter:blur(10px) saturate(110%) brightness(0.1,.08);
+  background:linear-gradient(to bottom, rgba(255,254,252,.50), rgba(250,248,244,.28));
+  backdrop-filter:blur(44px) saturate(210%) brightness(1.08);
+  -webkit-backdrop-filter:blur(44px) saturate(210%) brightness(1.08);
   border-bottom:1px solid rgba(120,105,88,.10);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.95),
