@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>A dojo in every country — Hazem Turaani</title>
+<meta name="description" content="Three months each in Germany, Spain and Japan — studying, training judo, and finding a mat wherever I landed.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Inter:wght@400;500;600&display=swap">
+
+<!-- Same stylesheet as every other page. -->
+<link rel="stylesheet" href="style.css">
+
+<script>
+/* If a photo file isn't uploaded yet, show the grey placeholder instead of a
+   broken-image icon. Upload the file with the matching name and it appears. */
+function phFallback(img){
+  var d=document.createElement('div');
+  d.className=img.getAttribute('data-ph')||'ph ph--4x3';
+  if(d.className.indexOf('hero__portrait')>-1){ d.textContent='Portrait'; }
+  else { d.setAttribute('data-label', img.getAttribute('data-label')||'Photo'); }
+  img.replaceWith(d);
+}
+</script>
+
+<!-- Scroll animation. Delete this line to switch all motion off. -->
+<script src="motion.js" defer></script>
+
+</head>
+
+<body>
+
+<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="index.html" class="nav__logo">Hazem Turaani</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="engineering.html">Engineering</a></li>
+      <li><a href="judo.html">Judo</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════ PAGE HEAD ═══════════════════ -->
+<header class="page-head">
+  <div class="wrap">
+    <a class="backlink" href="index.html">Back to home</a>
+    <h1 class="display">A dojo in every country.</h1>
+    <p class="lede">
+      Three countries, about three months in each, and a mat in all of them. Judo turns
+      out to be the fastest way into a place — you can't speak the language, but you can
+      bow, shake hands, and get thrown by a stranger for two hours.
+    </p>
+    <nav class="jump">
+      <a href="#germany">Germany</a>
+      <a href="#spain">Spain</a>
+      <a href="#japan">Japan</a>
+      <a href="#china">China, at a distance</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ═══════════════════ GERMANY ═══════════════════ -->
+<article class="entry" id="germany">
+  <div class="entry__meta">
+    <span class="entry__year">2023</span>
+    <span class="entry__tag">Berlin, Germany · about three months</span>
+  </div>
+  <h2 class="h2">Berlin.</h2>
+
+  <div class="entry__body">
+    <p>
+      A term at Technische Universität Berlin doing renewable energy research. The
+      technical side of that is on the <a href="engineering.html#berlin">engineering page</a>;
+      this is everything around it.
+    </p>
+    <p>
+      <strong>I trained while I was there.</strong> [Which club? How did you find it —
+      did you just turn up? What was German judo like compared to what you were used to:
+      harder, more technical, more formal? Anything you took home and started teaching
+      your own club?]
+    </p>
+    <p>
+      [And the rest of Berlin. Where you lived, how you got around, what you did on
+      weekends, what surprised you. Write it the way you'd tell a friend over a beer —
+      the engineering page already has the buttoned-up version.]
+    </p>
+  </div>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="travel-berlin.jpeg" alt="Berlin" data-ph="ph ph--16x9" data-label="Berlin photo" onerror="phFallback(this)">
+    <figcaption>[Caption]</figcaption>
+  </figure>
+
+  <div class="figrow">
+    <figure class="figure">
+      <img class="photo photo--4x3" src="travel-berlin-2.jpeg" alt="Berlin" data-ph="ph ph--4x3" data-label="Berlin photo" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+    <figure class="figure">
+      <img class="photo photo--4x3" src="travel-berlin-dojo.jpeg" alt="Training in Berlin" data-ph="ph ph--4x3" data-label="The dojo in Berlin" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+  </div>
+</article>
+
+<!-- ═══════════════════ SPAIN ═══════════════════ -->
+<article class="entry" id="spain">
+  <div class="entry__meta">
+    <span class="entry__year">2024</span>
+    <span class="entry__tag">Madrid, Spain · about three months</span>
+  </div>
+  <h2 class="h2">Madrid.</h2>
+
+  <div class="entry__body">
+    <p>
+      Summer coursework at Nebrija University. Second country in two years, and a
+      completely different rhythm from Berlin — [say how. Germans and Spaniards
+      organise a day very differently and you lived both.]
+    </p>
+    <p>
+      <strong>Found a club here too.</strong> [Which one? Spanish judo has a real
+      competitive tradition — how did the training compare to Germany and to Michigan?
+      Did you compete while you were there?]
+    </p>
+    <p>
+      [Everything else about Madrid. One specific memory is worth more than three
+      general impressions.]
+    </p>
+  </div>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="travel-madrid.jpeg" alt="Madrid" data-ph="ph ph--16x9" data-label="Madrid photo" onerror="phFallback(this)">
+    <figcaption>[Caption]</figcaption>
+  </figure>
+
+  <div class="figrow">
+    <figure class="figure">
+      <img class="photo photo--4x3" src="travel-madrid-2.jpeg" alt="Madrid" data-ph="ph ph--4x3" data-label="Madrid photo" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+    <figure class="figure">
+      <img class="photo photo--4x3" src="travel-madrid-dojo.jpeg" alt="Training in Madrid" data-ph="ph ph--4x3" data-label="The dojo in Madrid" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+  </div>
+</article>
+
+<!-- ═══════════════════ JAPAN ═══════════════════ -->
+<article class="entry" id="japan">
+  <div class="entry__meta">
+    <span class="entry__year">[Year]</span>
+    <span class="entry__tag">[City], Japan · about three months</span>
+  </div>
+  <h2 class="h2">Japan, for the judo.</h2>
+
+  <div class="entry__body">
+    <p>
+      Germany and Spain were degree programmes where I happened to find a mat.
+      <strong>Japan was the other way round.</strong> I went for the judo, and stayed
+      about three months.
+    </p>
+    <p>
+      [Where, exactly? Which dojo or university? How did you arrange it — through a
+      contact, a programme, or did you organise it yourself? The logistics matter here,
+      because arranging three months of training in Japan as an American student is not
+      a thing that just happens.]
+    </p>
+    <p>
+      [What was the training actually like? Volume, intensity, how a session is
+      structured, what they drill that nobody drills at home. Be specific — this is the
+      section a fellow judoka will read closely and everyone else will read because it
+      sounds like another world.]
+    </p>
+    <p>
+      [What did you bring back? You coach fifty people in Ann Arbor. Something from
+      those three months is in what you teach now — name it.]
+    </p>
+    <p>
+      [And Japan outside the dojo. Three months is long enough to stop being a tourist.]
+    </p>
+  </div>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="travel-japan.jpeg" alt="Japan" data-ph="ph ph--16x9" data-label="Japan — the main photo" onerror="phFallback(this)">
+    <figcaption>[Caption]</figcaption>
+  </figure>
+
+  <div class="figrow">
+    <figure class="figure">
+      <img class="photo photo--4x3" src="travel-japan-dojo.jpeg" alt="Training in Japan" data-ph="ph ph--4x3" data-label="The dojo in Japan" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+    <figure class="figure">
+      <img class="photo photo--4x3" src="travel-japan-2.jpeg" alt="Japan" data-ph="ph ph--4x3" data-label="Japan photo" onerror="phFallback(this)">
+      <figcaption>[Caption]</figcaption>
+    </figure>
+  </div>
+</article>
+
+<!-- ═══════════════════ CHINA ═══════════════════ -->
+<article class="entry" id="china">
+  <div class="entry__meta">
+    <span class="entry__year">2022</span>
+    <span class="entry__tag">China — without going there</span>
+  </div>
+  <h2 class="h2">You don't always have to be in the room.</h2>
+
+  <div class="entry__body">
+    <p>
+      One more country belongs on this page, and I've never set foot in it. The tatami
+      the Michigan judo club trains on came from a manufacturer in China. I sourced it,
+      negotiated the order, arranged the freight and handled the import paperwork —
+      <strong>all of it from Ann Arbor</strong>, across a twelve-hour time difference
+      and a language I don't speak.
+    </p>
+    <p>
+      It's the least glamorous thing here and probably the most useful. Getting something
+      real done in a country you've never visited turns out to be a different skill from
+      visiting one, and a harder one.
+    </p>
+    <p>
+      [Anything you'd pass on about dealing with overseas suppliers? What you'd do
+      differently? Almost nobody your age has this experience and it's worth writing down.]
+    </p>
+  </div>
+
+  <figure class="figure">
+    <img class="photo photo--16x9" src="travel-china.jpeg" alt="The imported tatami" data-ph="ph ph--16x9" data-label="Shipping docs, the pallet, or the mats" onerror="phFallback(this)">
+    <figcaption>[Caption — a shipping document or the pallet arriving would be perfect here.]</figcaption>
+  </figure>
+</article>
+
+<!-- ═══════════════════ LANGUAGES ═══════════════════
+     Delete this whole <article> if you'd rather not list languages.
+     ══════════════════════════════════════════════════════════════════ -->
+<article class="entry" id="languages">
+  <div class="entry__meta">
+    <span class="entry__tag">Languages</span>
+  </div>
+  <h2 class="h2">What I can get by in.</h2>
+
+  <ul class="record">
+    <li>
+      <span class="record__n">—</span>
+      <span class="record__what">[Language]</span>
+      <span class="record__lvl">[Native / fluent / conversational / enough to be polite]</span>
+    </li>
+    <li>
+      <span class="record__n">—</span>
+      <span class="record__what">[Language]</span>
+      <span class="record__lvl">[Level]</span>
+    </li>
+  </ul>
+</article>
+
+</div><!-- /wrap -->
+
+<!-- ═══════════════════ FOOT CTA ═══════════════════ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="band">
+      <h2 class="h2">The club this all feeds back into.</h2>
+      <p class="lede">
+        Everything I picked up in those dojos ends up on a mat in Ann Arbor on a
+        Tuesday night.
+      </p>
+      <div class="band__cta">
+        <a class="btn btn--primary" href="judo.html">The judo story</a>
+        <a class="btn btn--ghost" href="index.html">Back to home</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span id="year">2026</span> Hazem Turaani</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="engineering.html">Engineering</a>
+      <a href="judo.html">Judo</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+const toggle = document.getElementById('navToggle');
+toggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('#navLinks a').forEach(a =>
+  a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  })
+);
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
