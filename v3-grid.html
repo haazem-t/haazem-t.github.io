@@ -25,9 +25,10 @@ function phFallback(img){var d=document.createElement('div');d.className=img.get
 .card-tile:hover img{ transform:scale(1.05); }
 .card-tile__veil{ position:absolute; inset:0; background:linear-gradient(to top, rgba(14,11,9,.86) 0%, rgba(14,11,9,.2) 52%, rgba(14,11,9,0) 76%); }
 .card-tile__body{ position:absolute; inset:auto 0 0 0; padding:clamp(20px,2.2vw,30px); color:#f4efe7; }
+.card-tile__title,.card-tile__sub{ display:block; }
 .card-tile__title{ font-family:var(--font-disp); font-weight:600; font-size:clamp(19px,2vw,26px);
   font-variation-settings:"opsz" 24; line-height:1.15; }
-.card-tile__sub{ font-size:13px; color:#bdb3a6; margin-top:7px; }
+.card-tile__sub{ font-size:13px; line-height:1.45; color:#c6bcae; margin-top:7px; }
 
 .t-lg{ grid-column:span 3; aspect-ratio:4/3; }
 .t-sm{ grid-column:span 2; aspect-ratio:1/1; }
