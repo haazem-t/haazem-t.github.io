@@ -3,50 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Hazem Turaani — Mechanical Engineer &amp; Judo Coach</title>
-<meta name="description" content="Mechanical engineer (University of Michigan) working on refinery piping integrity. Founder and head coach of the Michigan judo club.">
-
-<!-- Typefaces: Newsreader for headings, Inter for reading. Loaded free from Google. -->
+<meta name="description" content="Mechanical engineer and founding coach of the University of Michigan judo club. Two Department of Defense X-Force fellowships, refinery asset integrity, and a dojo in every country.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Inter:wght@400;500;600&display=swap">
-
-<!-- All styling lives in style.css — upload it alongside this file or the page renders bare. -->
 <link rel="stylesheet" href="style.css">
-
 <script>
-/* If a photo file isn't uploaded yet, show the grey placeholder instead of a
-   broken-image icon. Upload the file with the matching name and it appears. */
-function phFallback(img){
-  var d=document.createElement('div');
-  d.className=img.getAttribute('data-ph')||'ph ph--4x3';
-  if(d.className.indexOf('hero__portrait')>-1){ d.textContent='Portrait'; }
-  else { d.setAttribute('data-label', img.getAttribute('data-label')||'Photo'); }
-  img.replaceWith(d);
-}
+function phFallback(img){var d=document.createElement('div');d.className=img.getAttribute('data-ph')||'ph ph--4x3';if(d.className.indexOf('hero__portrait')>-1){d.textContent='Portrait';}else{d.setAttribute('data-label',img.getAttribute('data-label')||'Photo');}img.replaceWith(d);}
 </script>
+<style>
+/* ── Home page layout: the opening beat and the numbered chapters. ── */
+.hero{ min-height:88svh; padding:120px 0 64px; }
 
-<!-- Scroll animation. Delete this line to switch all motion off. -->
-<script src="motion.js" defer></script>
+/* The opening beat — one line that makes you want the rest */
+.beat{ background:var(--bg-alt); border-block:1px solid var(--line); padding:clamp(80px,12vw,150px) 0; text-align:center; }
+.beat p{ font-family:var(--font-disp); font-size:clamp(26px,4.2vw,46px); font-variation-settings:"opsz" 44;
+  line-height:1.22; letter-spacing:-.015em; max-width:22ch; margin:0 auto; }
+.beat cite{ display:block; margin-top:26px; font-family:var(--font); font-style:normal;
+  font-size:12px; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-faint); }
 
+/* A chapter: full-bleed image on one side, a short trailer on the other */
+.chapter{ display:grid; grid-template-columns:1fr 1fr; align-items:stretch; border-bottom:1px solid var(--line); }
+.chapter__media{ position:relative; overflow:hidden; min-height:clamp(380px,56vw,640px); background:#e7e1d6; }
+.chapter__media img{ width:100%; height:100%; object-fit:cover; }
+.chapter__text{ display:flex; flex-direction:column; justify-content:center; padding:clamp(48px,6vw,96px) clamp(32px,6vw,88px); }
+.chapter--flip .chapter__media{ order:2; }
+.chapter__num{ font-family:var(--font-disp); font-size:clamp(40px,5vw,64px); font-weight:600;
+  font-variation-settings:"opsz" 60; line-height:1; color:var(--accent); margin-bottom:18px; }
+.chapter__text .h2{ margin-bottom:18px; }
+.chapter__text .body{ max-width:46ch; font-size:17px; line-height:1.7; }
+.chapter__door{ margin-top:30px; }
+@media (max-width:880px){
+  .chapter{ grid-template-columns:1fr; }
+  .chapter--flip .chapter__media{ order:0; }
+  .chapter__media{ min-height:300px; }
+}
+
+/* Proof: the numbers, nothing else */
+.proof{ padding:clamp(72px,9vw,120px) 0; }
+</style>
 </head>
-
 <body>
 
-<!-- ═══════════════════ NAVIGATION ═══════════════════ -->
 <header class="nav" id="nav">
   <div class="wrap nav__inner">
-    <a href="#top" class="nav__logo">Hazem Turaani</a>
-    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="index.html" class="nav__logo">Hazem Turaani</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <ul class="nav__links" id="navLinks">
-      <li><a href="#engineering">Engineering</a></li>
-      <li><a href="#leadership">Leadership</a></li>
-      <li><a href="#judo">Judo</a></li>
-      <li><a href="#journey">Journey</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="engineering.html">Engineering</a></li>
+      <li><a href="judo.html">Judo</a></li>
+      <li><a href="abroad.html">Abroad</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -54,301 +61,70 @@ function phFallback(img){
 
 <main id="top">
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
 <section class="hero">
   <div class="wrap hero__content">
     <img class="hero__portrait" src="hazem.jpeg" alt="Hazem Turaani" data-ph="hero__portrait" onerror="phFallback(this)">
-    <!-- The two halves drift apart as you scroll. Keep them as separate
-         spans; the text itself can say anything you like. -->
     <h1 class="display hero__title">
       <span class="hero__line hero__line--l">Mechanical engineer.</span>
-      <span class="hero__line hero__line--r">Founder of UofM-Ann Arbor judo club.</span>
+      <span class="hero__line hero__line--r">Founding judo coach.</span>
     </h1>
-    <p class="lede">
-      I measure vibration on refinery piping for a living, and I coach the judo club
-      I founded at the University of Michigan. Both jobs come down to the same thing, 
-      spotting what's about to fail, and fixing it before it does.
-    </p>
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="#engineering">See my work</a>
-      <a class="btn btn--ghost" href="cv.pdf" download>Download CV</a>
-    </div>
+    <p class="lede">I measure vibration on refinery piping for a living, and I coach the judo club I founded at the University of Michigan.</p>
     <span class="hero__scroll">Scroll</span>
   </div>
 </section>
 
-<!-- ═══════════════════ STAT STRIP ═══════════════════ -->
-<section class="stats">
+<!-- The hook. One concrete moment, before any category. -->
+<section class="beat">
+  <div class="wrap">
+    <p>In 2022 I stood on a Michigan highway while the Air Force turned it into a runway.</p>
+    <cite>Three things I've done, in order</cite>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="chapter" id="engineering">
+  <div class="chapter__media"><img src="xforce.jpeg" alt="Highway runway at Northern Agility 22-1" data-ph="ph ph--4x3" data-label="X-Force photo" onerror="phFallback(this)"></div>
+  <div class="chapter__text reveal">
+    <div class="chapter__num">01</div>
+    <p class="eyebrow">Engineering</p>
+    <h2 class="h2">Keeping heavy industry standing up.</h2>
+    <p class="body">Twice selected for a Department of Defense fellowship — once to work out how to rebuild a runway in eight hours, once on radiation shielding for the Navy. Today I clamp sensors onto live refinery piping and find the lines about to crack.</p>
+    <p class="chapter__door"><a class="btn btn--ghost btn--more" href="engineering.html">All engineering work</a></p>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="chapter chapter--flip" id="club">
+  <div class="chapter__media"><img src="judo-main.jpeg" alt="The team at a championship" data-ph="ph ph--4x3" data-label="Judo photo" onerror="phFallback(this)"></div>
+  <div class="chapter__text reveal">
+    <div class="chapter__num">02</div>
+    <p class="eyebrow">The club</p>
+    <h2 class="h2">I started a club from an empty room.</h2>
+    <p class="body">There was no judo at Michigan, so I built it — found the members, imported the mats, and coached. Seven team championships later I'm still on the mat with them, unpaid, every week. Three state titles of my own along the way.</p>
+    <p class="chapter__door"><a class="btn btn--ghost btn--more" href="judo.html">The full judo story</a></p>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="chapter" id="abroad">
+  <div class="chapter__media"><img src="mats.jpeg" alt="Imported tatami" data-ph="ph ph--4x3" data-label="Mats photo" onerror="phFallback(this)"></div>
+  <div class="chapter__text reveal">
+    <div class="chapter__num">03</div>
+    <p class="eyebrow">Abroad</p>
+    <h2 class="h2">A dojo in every country.</h2>
+    <p class="body">Three months each in Germany, Spain and Japan — studying, and finding a mat in all three. Plus one country I've never visited: the club's tatami came from a Chinese manufacturer I negotiated with from a dorm room in Ann Arbor.</p>
+    <p class="chapter__door"><a class="btn btn--ghost btn--more" href="abroad.html">Where I've worked</a></p>
+  </div>
+</section>
+
+<!-- Proof -->
+<section class="stats proof">
   <div class="wrap">
     <div class="stats__grid reveal">
       <div class="stat"><div class="stat__num">2×</div><div class="stat__label">DoD X-Force fellow</div></div>
-      <div class="stat"><div class="stat__num">7</div><div class="stat__label">Chmapionships</div></div>
+      <div class="stat"><div class="stat__num">7</div><div class="stat__label">Championships</div></div>
       <div class="stat"><div class="stat__num">3×</div><div class="stat__label">State champion</div></div>
       <div class="stat"><div class="stat__num">3rd</div><div class="stat__label">Collegiate nationals</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ ENGINEERING ═══════════════════ -->
-<section class="section" id="engineering">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Engineering</p>
-      <h2 class="h2">Keeping heavy industry standing up.</h2>
-      <p class="lede">
-        Mechanical engineering at the University of Michigan, two summers as a Department of Defense
-        X-Force Fellow, and a term of renewable energy research in Berlin, then straight into the
-        field. Today I work in asset integrity, which mostly means being on site, on the pipe, with
-        instruments in my hands.
-      </p>
-    </div>
-
-    <!-- X-Force leads the section -->
-    <div class="feature reveal">
-      <div class="feature__media"><img class="photo photo--4x3" src="xforce.jpeg" alt="Highway serving as an active runway at Northern Agility 22-1" data-ph="ph ph--4x3" data-label="X-Force / Northern Agility photo" onerror="phFallback(this)"></div>
-      <div class="feature__text">
-        <p class="eyebrow">X-Force Fellow · 2022 &amp; 2023</p>
-        <h3 class="h3">Two summers solving Defense Department problems.</h3>
-        <p class="body">
-          X-Force places small teams of students with a military sponsor for ten weeks, full-time
-          and paid, on a problem that sponsor genuinely has. I was selected twice.
-        </p>
-        <p class="body" style="margin-top:20px">
-          In 2022 the U.S. Air Force wanted a damaged runway repaired , or a new one built, in
-          under eight hours. I spent eight days at an exercise where a stretch of Michigan highway
-          became an active runway, interviewed the civil engineers and pilots who would have to do
-          it for real, and ran the numbers on how thick a surface has to be to take a fighter.
-        </p>
-        <blockquote class="pull">
-          “My summer was straight out of a Hollywood movie.”
-          <cite>— Michigan Center for Entrepreneurship, student spotlight</cite>
-        </blockquote>
-        <ul class="ticks">
-          <li>U.S. Air Force, 2022 — rapid runway repair and construction</li>
-          <li>U.S. Navy, NSWC Crane, 2023 — radiation shielding and cryogenic insulation</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="feature feature--flip reveal">
-      <div class="feature__media"><img class="photo photo--4x3" src="refinery.jpeg" alt="Small-bore piping on a refinery unit" data-ph="ph ph--4x3" data-label="Refinery piping photo" onerror="phFallback(this)"></div>
-      <div class="feature__text">
-        <p class="eyebrow">Current role · In the field</p>
-        <h3 class="h3">On site, on the pipe.</h3>
-        <p class="body">
-          Piping in a refinery is never still. Pumps, compressors and flow turbulence shake it
-          constantly, and small bore connections, the little branch lines off the main run, are
-          where that shaking does its damage first. I travel to the units, instrument those
-          connections, and check them against API limits. When a line comes back over the limit,
-          I design the fix: what to brace, where, and how, based on the pipe size, the
-          configuration, and the data I just collected.
-        </p>
-        <ul class="ticks">
-          <li>Accelerometer surveys on small-bore connections across live units</li>
-          <li>Screening against API acceptance criteria</li>
-          <li>Remediation design and written findings for the client</li>
-          <li>Around five sites a year, North Dakota, Kentucky, Minnesota, Michigan, California</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="more reveal">
-      <a class="btn btn--ghost btn--more" href="engineering.html">All engineering work</a>
-      <span class="more__hint">Every project, with photos, diagrams and the technical detail.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ ENGINEERING — RESEARCH + FOCUS ═══════════════════ -->
-<section class="section section--alt">
-  <div class="wrap">
-
-    <div class="feature reveal">
-      <div class="feature__media"><img class="photo photo--4x3" src="nasa.jpeg" alt="NASA Proposal Writing and Evaluation Experience" data-ph="ph ph--4x3" data-label="NASA PWEE photo or certificate" onerror="phFallback(this)"></div>
-      <div class="feature__text">
-        <p class="eyebrow">NASA · 2026</p>
-        <h3 class="h3">Learning how NASA decides what to fund.</h3>
-        <p class="body">
-          The NASA Proposal Writing and Evaluation Experience is a full-semester academy that takes
-          you through the process from the inside: identify a NASA need, scope a response against a
-          real solicitation, and write the proposal. I handled topic research, CAD modelling and the
-          statistical analysis for my team's submission. We didn't place. Afterwards I was trained as
-          a reviewer and scored four other teams' proposals, which taught me more about writing a
-          good one than writing my own had.
-        </p>
-        <ul class="ticks">
-          <li>Fifteen weeks, sponsored by NASA</li>
-          <li>Research, CAD modelling and statistical analysis on the team's proposal</li>
-          <li>Trained as a reviewer; scored four peer proposals</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="feature feature--flip reveal">
-      <div class="feature__media"><img class="photo photo--4x3" src="berlin.jpeg" alt="Renewable energy research at TU Berlin" data-ph="ph ph--4x3" data-label="TU Berlin research photo" onerror="phFallback(this)"></div>
-      <div class="feature__text">
-        <p class="eyebrow">Research · TU Berlin · 2023</p>
-        <h3 class="h3">A term on renewables in Berlin.</h3>
-        <p class="body">
-          A semester at Technische Universität Berlin working through how solar, wind and storage
-          actually behave as a system rather than as separate technologies. The question I ended on
-          was a practical one: what's the right way to store energy in different regions of the
-          United States, given that geography decides so much of the answer.
-        </p>
-        <ul class="ticks">
-          <li>Built the models in Python</li>
-          <li>Simulated complete renewable systems for three U.S. cities and compared them by geography</li>
-          <li>Worked within a German research group</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Focus areas — what you want to be hired for next -->
-    <div class="cards reveal" style="margin-top:96px">
-      <article class="card">
-        <div class="card__body">
-          <p class="card__tag">Focus</p>
-          <h3 class="card__title">Field work &amp; asset integrity</h3>
-          <p class="card__text">Accelerometer surveys on live plant, screening against API criteria, and designing the remediation that follows. Comfortable being the engineer on site.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__body">
-          <p class="card__tag">Focus</p>
-          <h3 class="card__title">Design &amp; CAD</h3>
-          <p class="card__text">SolidWorks and Fusion 360. Mechanical design from a rough constraint to a part someone can actually make.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__body">
-          <p class="card__tag">Focus</p>
-          <h3 class="card__title">Simulation &amp; analysis</h3>
-          <p class="card__text">Simulink, Python and LAMMPS, with a standing interest in aviation and aerospace applications. Thermofluids is where I'd most like to go deeper.</p>
-        </div>
-      </article>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════ LEADERSHIP ═══════════════════ -->
-<section class="section" id="leadership">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Leadership</p>
-      <h2 class="h2">I started a club from an empty room.</h2>
-      <p class="lede">
-        There was no judo club at the University of Michigan, so I built one, sourced the equipment, imported it,
-        recruited the first members, and coached. Four years later it has participated in seven championships
-        and around fifty members. I still coach it, unpaid, as a volunteer.
-      </p>
-    </div>
-
-    <!-- The mats story — the standout -->
-    <div class="feature reveal">
-      <div class="feature__media"><img class="photo photo--4x3" src="mats.jpeg" alt="Imported tatami mats in the club dojo" data-ph="ph ph--4x3" data-label="Mats / dojo photo" onerror="phFallback(this)"></div>
-      <div class="feature__text">
-        <p class="eyebrow">Founding the club</p>
-        <h3 class="h3">The mats came from China. I got them off the boat.</h3>
-        <p class="body">
-          A judo club is a floor before it is anything else, and a domestic tatami order was far
-          beyond what a new student group could fund. So I sourced the mats from a manufacturer in
-          China, negotiated the order, arranged the freight, and handled the import paperwork,
-          customs clearance and collection from the port myself, then laid the floor. It was the
-          first project I ever ran end to end.
-        </p>
-        <ul class="ticks">
-          <li>64 m² of tatami, about 690 square feet, for roughly $5,000</li>
-          <li>Sourced and negotiated directly with an overseas manufacturer</li>
-          <li>Arranged international freight and import documentation</li>
-          <li>Cleared customs and collected the shipment from port</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="cards reveal" style="margin-top:96px">
-      <article class="card">
-        <div class="card__body">
-          <p class="card__tag">Founded</p>
-          <h3 class="card__title">Built the club from scratch</h3>
-          <p class="card__text">Equipment, funding, university approvals, insurance and a training schedule that survives exam season.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__body">
-          <p class="card__tag">Coached</p>
-          <h3 class="card__title">Seven team championships</h3>
-          <p class="card__text">Three state, two regional and two national collegiate titles under my coaching.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__body">
-          <p class="card__tag">Grew</p>
-          <h3 class="card__title">Beginners into competitors</h3>
-          <p class="card__text">From the ten members needed to register, to around fifty today. Our first competition entry was three people; we now send twenty-four.</p>
-        </div>
-      </article>
-    </div>
-
-    <!-- Coaching record -->
-    <ul class="record reveal">
-      <li>
-        <span class="record__n">3×</span>
-        <span class="record__what">State champions</span>
-        <span class="record__lvl">Team · as head coach</span>
-      </li>
-      <li>
-        <span class="record__n">2×</span>
-        <span class="record__what">Regional champions</span>
-        <span class="record__lvl">Team · as head coach</span>
-      </li>
-      <li>
-        <span class="record__n">2×</span>
-        <span class="record__what">National collegiate champions</span>
-        <span class="record__lvl">Team · as head coach</span>
-      </li>
-    </ul>
-
-    <div class="more reveal">
-      <a class="btn btn--ghost btn--more" href="judo.html#building">How the club was built</a>
-      <span class="more__hint">The mats, the paperwork, the first ten members, and what coaching taught me.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ JUDO — PERSONAL RECORD (dark) ═══════════════════ -->
-<section class="section dark" id="judo">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Judo</p>
-      <h2 class="h2" style="color:#f4efe7">Three state titles, back to back.</h2>
-      <p class="lede">
-        Before I coached, I competed — and I still do, alongside the people I coach.
-        Three consecutive state titles at the Meijer State Games of Michigan, and third place
-        at the NCJA College and High School Championships.
-      </p>
-    </div>
-
-    <div class="stats reveal" style="border:0">
-      <div class="stats__grid">
-        <div class="stat"><div class="stat__num">3×</div><div class="stat__label">State champion, consecutive</div></div>
-        <div class="stat"><div class="stat__num">3rd</div><div class="stat__label">2024 National collegiate</div></div>
-        <div class="stat"><div class="stat__num">6</div><div class="stat__label">Years on the mat</div></div>
-        <div class="stat"><div class="stat__num">Ikyu</div><div class="stat__label">Current grade</div></div>
-      </div>
-    </div>
-
-    <div class="gallery reveal">
-      <img class="photo" src="judo-main.jpeg" alt="Competing at the state championships" data-ph="ph ph--dark" data-label="Main competition photo" onerror="phFallback(this)">
-      <img class="photo photo--1x1" src="judo-1.jpeg" alt="Judo photograph" data-ph="ph ph--dark ph--1x1" data-label="Photo" onerror="phFallback(this)">
-      <img class="photo photo--1x1" src="judo-2.jpeg" alt="Judo photograph" data-ph="ph ph--dark ph--1x1" data-label="Photo" onerror="phFallback(this)">
-      <img class="photo photo--1x1" src="judo-3.jpeg" alt="Judo photograph" data-ph="ph ph--dark ph--1x1" data-label="Photo" onerror="phFallback(this)">
-      <img class="photo photo--1x1" src="judo-4.jpeg" alt="Judo photograph" data-ph="ph ph--dark ph--1x1" data-label="Photo" onerror="phFallback(this)">
-    </div>
-
-    <div class="more reveal">
-      <a class="btn btn--ghost btn--more" href="judo.html">The full judo story</a>
-      <span class="more__hint">Founding the club, the coaching years, and every competition.</span>
     </div>
   </div>
 </section>
@@ -498,16 +274,6 @@ function phFallback(img){
   </div>
 </section>
 
-<!-- ═══════════════════ ABROAD ═══════════════════ -->
-<section class="section" style="padding-bottom:0">
-  <div class="wrap">
-    <div class="more reveal" style="margin-top:0; padding-top:0; border-top:0">
-      <a class="btn btn--ghost btn--more" href="abroad.html">A dojo in every country</a>
-      <span class="more__hint">Three months each in Germany, Spain and Japan — and one country I never visited.</span>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════════════ OFF THE CLOCK ═══════════════════ -->
 <section class="section section--alt">
   <div class="wrap">
@@ -589,51 +355,24 @@ function phFallback(img){
     </div>
   </div>
 </section>
+
+
 </main>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer class="footer">
   <div class="wrap footer__inner">
     <p>© <span id="year">2026</span> Hazem Turaani</p>
-    <nav>
-      <a href="#engineering">Engineering</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#judo">Judo</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <nav><a href="engineering.html">Engineering</a><a href="judo.html">Judo</a><a href="abroad.html">Abroad</a></nav>
   </div>
 </footer>
 
+<script src="motion.js" defer></script>
 <script>
-/* ── 1. Mobile menu ─────────────────────────────────────────────── */
-const nav = document.getElementById('nav');
-const toggle = document.getElementById('navToggle');
-toggle.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', open);
-});
-document.querySelectorAll('#navLinks a').forEach(a =>
-  a.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-  })
-);
-
-/* ── 2. Fade sections in as you scroll ──────────────────────────── */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-/* ── 3. Testimonial arrows ──────────────────────────────────────── */
-const quotes = document.getElementById('quotes');
-const step = () => Math.min(quotes.clientWidth * 0.8, 400);
-document.getElementById('qPrev').onclick = () => quotes.scrollBy({ left: -step(), behavior: 'smooth' });
-document.getElementById('qNext').onclick = () => quotes.scrollBy({ left:  step(), behavior: 'smooth' });
-
-/* ── 4. Footer year updates itself ──────────────────────────────── */
-document.getElementById('year').textContent = new Date().getFullYear();
+const nav=document.getElementById('nav'),toggle=document.getElementById('navToggle');
+toggle.addEventListener('click',()=>{const o=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('year').textContent=new Date().getFullYear();
 </script>
-
 </body>
 </html>
